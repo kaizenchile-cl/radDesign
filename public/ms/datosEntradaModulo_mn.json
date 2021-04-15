@@ -1,0 +1,114 @@
+[
+    {
+        "id":"6"
+        , "nombre":"distanciaBox1PuntoInteresRadiologico"
+        , "etiqueta":"Distance C1-RPOI [m]"
+        , "ayuda": "Distance from uptake room 1 to RPOI"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo":"0"
+        , "paso": "0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"7"
+        , "nombre":"distanciaBox2PuntoInteresRadiologico"
+        , "etiqueta":"Distance C2-RPOI [m]"
+        , "ayuda": "Distance from uptake room 2 to RPOI. Fill in if there is a second uptake room"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo":"0"
+        , "paso": "0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+    ,{
+        "id":"9"
+        , "nombre":"distanciaImagenPuntoInteresRadiologico"
+        , "etiqueta":"Distance I-RPOI [m]"
+        , "ayuda": "Distance from imaging room (where the equipment is located) to RPOI"
+        , "dependencia": "#{radioisotopo}=='2'"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo":"0"
+        , "paso": "0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+    , {
+        "id":"10"
+        , "nombre":"clasificacionArea"
+        , "etiqueta":"Design Goal"
+        , "ayuda": "Criteria according to AAPM 108. The controlled area has a limit dose limit associated to TOEs and the non controlled area has a dose limit for the public"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Controlled"}, {"id":"2","nombre":"Non Controlled"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }    
+    , {
+        "id":"11"
+        , "nombre":"material"
+        , "etiqueta":"Material"
+        , "ayuda": "Seleccione el material con el que quiera obtener el espesor de su barrera"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Lead"}, {"id":"2","nombre":"Concrete"}, {"id":"3","nombre":"Steel"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"12"
+        , "nombre":"retencionOrina"
+        , "etiqueta":"Urine Elimination"
+        , "ayuda": "¿Se utiliza factor de eliminación de Orina?"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "dependencia": "#{distanciaImagenPuntoInteresRadiologico?0}>0"
+        , "origen":[{"id":"1", "nombre":"No"}, {"id":"0.85","nombre":"Sí"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"13"
+        , "nombre":"factorOcupacionA"
+        , "etiqueta":"Occupancy Factor (T)"
+        , "ayuda": "Seleccione el factor de ocupación de la instalación contigua a la barrera"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":" 1"}, {"id":"0.5","nombre":"1/2"}, {"id":"0.25","nombre":"1/4"}, {"id":"0.125","nombre":"1/8"}, {"id":"0.125","nombre":"1/10"}, {"id":"0.05","nombre":"1/20"}, {"id":"0.025","nombre":"1/40"}, {"id":"-1","nombre":"Otro"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"13b"
+        , "nombre":"factorOcupacionB"
+        , "etiqueta":"Custom Occupancy Factor (T)"
+        , "ayuda": "Coloque un Factor de Ocupación (T) personalizado"
+        , "dependencia": "#{factorOcupacionA} == -1"
+        , "tipo":"numeric"
+        , "defecto" : "1"
+        , "maximo": "10"
+        , "minimo":"0"
+        , "paso": "0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+]

@@ -1,0 +1,125 @@
+[
+  {
+    "id":"1s"
+    , "tipoSalida": "salida"
+    , "nombre": "P"
+    , "etiqueta": "P"
+    , "visible": true
+    , "unidad": "[mGy/year]"
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{area} == 1 ? 5 : 1"}
+  }
+  , {
+    "id": "1a",
+    "tipoSalida": "salida",
+    "visible": false,
+    "nombre": "wTabla",
+    "etiqueta": "Workload (W)",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tabla"
+      , "valor":"w"
+      , "tabla":"tParametrosRD"
+      , "filtro":[
+        {"campo":"tipoUnidad","valor":"#{tipoRadiografia}"}
+        , {"campo":"kVp","valor":"#{kVp}"}
+      ]
+    }
+  }
+  , {
+    "id":"1b"
+    , "tipoSalida": "salida"
+    , "nombre": "w"
+    , "etiqueta": "Workload (W)"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{usaCargaTrabajo?2} == 1 ? #{wTabla?0} : #{cargaTrabajo?0}"}
+  }
+  , {
+    "id":"2p"
+    , "tipoSalida": "salida"
+    , "nombre": "primario"
+    , "etiqueta": "(pri)"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto" : " #{tipoBarrera} == 1? 1 : null " }
+  }
+  , {
+    "id":"2s"
+    , "tipoSalida": "salida"
+    , "nombre": "secundario"
+    , "etiqueta": "(sec)"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{tipoBarrera} == 2 ? 1 : null"}
+  } 
+  , {
+    "id":"2a"
+    , "tipoSalida": "salida"
+    , "nombre": "fprimario"
+    , "etiqueta": "α * W * u * T"
+    , "visible": true
+    , "unidad": "[mA*min/week]"
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{primario} * #{B?1} * #{w} * #{u} * #{t}"}
+  }
+  , {
+    "id":"2b"
+    , "tipoSalida": "salida"
+    , "nombre": "fsecundario"
+    , "etiqueta": "W * ( 1 - u) * T "
+    , "visible": true
+    , "unidad": "[mA*min/week]"
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto": "#{secundario} * #{w} * (1 - #{u} )* #{t}"}
+  }  , {
+    "id":"2c"
+    , "tipoSalida": "salida"
+    , "nombre": "f"
+    , "etiqueta": "(Field Size (f))"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{tipoBarrera} == 1 ? #{fprimario?0} : #{fsecundario?0}"}
+  }
+  , {
+    "id":"3"
+    , "tipoSalida": "salida"
+    , "nombre": "flog"
+    , "etiqueta": "flog"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 10
+    , "expresion": {"tipo":"formula","texto":"Math.log(#{f}) / Math.LN2"}
+  }
+  , {
+    "id":"4"
+    , "tipoSalida": "salida"
+    , "nombre": "fugaAjustada"
+    , "etiqueta": "Adjusted Leakage."
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 10
+    , "expresion": {"tipo":"formula","texto":"#{tipoBarrera} == 1 ? 1 : #{fuga?1}"}
+  }
+  , {
+    "id": "20",
+    "tipoSalida": "resultado",
+    "visible": true,
+    "nombre": "espesor",
+    "etiqueta": "Thickness",
+    "unidad":"[mm]",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tablaDinamica"
+      , "valor":"espesor"
+      ,"tabla":"http://www.ingefisic.cl/srv_ingefisic/public/api/espesorDental/alimentacion/#{alimentacion}/fuga/#{fugaAjustada}/tipo_barrera/#{tipoBarrera}/w/#{flog}/distancia/#{distancia}/t/#{kVp}/material/#{material}/area/#{area}"
+      ,"filtro":[
+      ]
+    }
+  }
+]

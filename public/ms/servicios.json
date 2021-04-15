@@ -1,0 +1,10 @@
+[
+    {"id":"mn", "tipo": "medicina", "nombre":"Nuclear Medicine", "imagen":"image/mn.jpg", "activo": false}
+    , {"id":"rt", "tipo": "medicina", "nombre":"Radiotherapy", "imagen":"image/rt.jpg", "activo": false}
+    , {"id":"bt", "tipo": "medicina", "nombre":"Brachytherapy", "imagen":"image/bt.jpg", "activo": false}
+    , {"id":"tc", "tipo": "medicina", "nombre":"Computed Tomography", "imagen":"image/tc.jpg", "activo": false}
+    , {"id":"rg", "tipo": "medicina", "nombre":"Conventional Radiography", "imagen":"image/rg.jpg", "activo": false}
+    , {"id":"mg", "tipo": "medicina", "nombre":"Mammography", "imagen":"image/mg.jpg", "activo": false}
+    , {"id":"fs", "tipo": "medicina", "nombre":"Fluoroscopy", "imagen":"image/fs.jpg", "activo": false}
+    , {"id":"rd", "tipo": "medicina", "nombre":"Radiografía Dental", "imagen":"image/rd.jpg", "activo": false}
+]

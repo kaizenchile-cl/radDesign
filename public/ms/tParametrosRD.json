@@ -1,0 +1,20 @@
+[
+  {"tipoUnidad": 1, "kVp": 50, "w": 14}
+  , {"tipoUnidad": 1, "kVp": 70, "w": 7.5}
+  , {"tipoUnidad": 1, "kVp": 90, "w": 4.2}
+  , {"tipoUnidad": 2, "kVp": 50, "w": 28}
+  , {"tipoUnidad": 2, "kVp": 70, "w": 15}
+  , {"tipoUnidad": 2, "kVp": 90, "w": 8.3}
+  , {"tipoUnidad": 3, "kVp": 50, "w": 43}
+  , {"tipoUnidad": 3, "kVp": 70, "w": 23}
+  , {"tipoUnidad": 3, "kVp": 90, "w": 13}
+  , {"tipoUnidad": 4, "kVp": 50, "w": 75}
+  , {"tipoUnidad": 4, "kVp": 70, "w": 42}
+  , {"tipoUnidad": 4, "kVp": 90, "w": 25}
+  , {"tipoUnidad": 5, "kVp": 50, "w": 150}
+  , {"tipoUnidad": 5, "kVp": 70, "w": 83}
+  , {"tipoUnidad": 5, "kVp": 90, "w": 50}
+  , {"tipoUnidad": 6, "kVp": 50, "w": 225}
+  , {"tipoUnidad": 6, "kVp": 70, "w": 125}
+  , {"tipoUnidad": 6, "kVp": 90, "w": 75}
+]

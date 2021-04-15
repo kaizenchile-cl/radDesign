@@ -1,0 +1,54 @@
+[
+    {
+        "id":"4"
+        , "nombre":"d"
+        , "etiqueta":"Distance Isocenter-RPOI"
+        , "tipo":"numeric"
+        , "maximo":"12"
+        , "minimo":"0"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":""
+        , "obligatorio": true
+    }       
+    , {
+        "id":"7"
+        , "nombre":"material"
+        , "etiqueta":"Material"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Lead"}, {"id":"2", "nombre":"Concrete"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    } 
+    , {
+        "id":"9"
+        , "nombre":"nroClasificacionZona"
+        , "etiqueta":"Design Goal"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Controlled"},{"id":"2", "nombre":"Non Controlled"}]
+        , "valor":"id"
+        , "texto":"energía"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    } 
+    ,{
+        "id":"8"
+        , "nombre":"nroFactorOcupacion"
+        , "etiqueta":"Ocuppancy Factor (T)"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":" 1 : Total"}, {"id":"0.5","nombre":"1/2 : Partial"}, {"id":"0.125","nombre":"1/8  : Door, Hallway"}, {"id":"0.05","nombre":"1/20  : Low Ocuppancy"}, {"id":"0.025","nombre":"1/40  : Outside"}]
+        , "valor":"1"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

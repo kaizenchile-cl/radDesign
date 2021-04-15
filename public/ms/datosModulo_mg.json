@@ -1,0 +1,14 @@
+[
+    {
+        "id":"1"
+        , "nombre":"nProcedimientos"
+        , "etiqueta":"N° of Treatments Per Week"
+        , "tipo":"numeric"
+        , "maximo":"1000"
+        , "minimo":"1"
+        , "paso":"10"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

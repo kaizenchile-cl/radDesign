@@ -1,0 +1,15 @@
+[
+    {"id":"cu", "tipo": "util", "nombre":"Conversión Unidades", "imagen":"image/feynman2.jpg", "activo": false}
+    , {"id":"tc", "tipo": "medicina", "nombre":"Tomografía Computada", "imagen":"image/tc.jpg", "activo": false}
+    , {"id":"rt", "tipo": "medicina", "nombre":"Radioterapia", "imagen":"image/rt.jpg", "activo": false}
+    , {"id":"mn", "tipo": "medicina", "nombre":"Medicina Nuclear", "imagen":"image/mn.jpg", "activo": false}
+    , {"id":"fs", "tipo": "medicina", "nombre":"Fluoroscopía", "imagen":"image/fs.jpg", "activo": false}
+    , {"id":"rg", "tipo": "medicina", "nombre":"Radiografía Convencional", "imagen":"image/rg.jpg", "activo": false}
+    , {"id":"rd", "tipo": "medicina", "nombre":"Radiografía Dental", "imagen":"image/rd.jpg", "activo": false}
+    , {"id":"mg", "tipo": "medicina", "nombre":"Mamografía", "imagen":"image/mg.jpg", "activo": false}
+    , {"id":"bt", "tipo": "medicina", "nombre":"Braquiterapia", "imagen":"image/bt.jpg", "activo": false}
+    , {"id":"bg", "tipo": "industrial", "nombre":"Búnker Gammagrafía", "imagen":"image/bg.jpg", "activo": false}
+    , {"id":"da", "tipo": "industrial", "nombre":"Depósitos Almacenamiento", "imagen":"image/da.jpg", "activo": false}
+    , {"id":"do", "tipo": "industrial", "nombre":"Dosis Operacional", "imagen":"image/do.jpg", "activo": false}
+    , {"id":"re", "tipo": "industrial", "nombre":"Radio Exclusión", "imagen":"image/re.jpg", "activo": false}
+]

@@ -1,0 +1,26 @@
+[
+  { "tipoBarrera": 1, "energia":"1", "tipoMaterial":"1", "tvl": 5.5}
+  ,{ "tipoBarrera": 1, "energia":"1", "tipoMaterial":"2", "tvl": 34.3}
+  ,{ "tipoBarrera": 1, "energia":"1", "tipoMaterial":"3", "tvl": 9.8}
+  ,{ "tipoBarrera": 1, "energia":"2", "tipoMaterial":"1", "tvl": 5.6}
+  ,{ "tipoBarrera": 1, "energia":"2", "tipoMaterial":"2", "tvl": 38.9}
+  ,{ "tipoBarrera": 1, "energia":"2", "tipoMaterial":"3", "tvl": 10.5}
+  ,{ "tipoBarrera": 1, "energia":"3", "tipoMaterial":"1", "tvl": 5.6}
+  ,{ "tipoBarrera": 1, "energia":"3", "tipoMaterial":"2", "tvl": 44.5}
+  ,{ "tipoBarrera": 1, "energia":"3", "tipoMaterial":"3", "tvl": 11.1}
+  ,{ "tipoBarrera": 1, "energia":"4", "tipoMaterial":"1", "tvl": 5.2}
+  ,{ "tipoBarrera": 1, "energia":"4", "tipoMaterial":"2", "tvl": 47.0}
+  ,{ "tipoBarrera": 1, "energia":"4", "tipoMaterial":"3", "tvl": 10.7}
+  ,{ "tipoBarrera": 2, "energia":"1", "tipoMaterial":"1", "tvl": 4.5}
+  ,{ "tipoBarrera": 2, "energia":"1", "tipoMaterial":"2", "tvl": 27.9}
+  ,{ "tipoBarrera": 2, "energia":"1", "tipoMaterial":"3", "tvl": 8.0}
+  ,{ "tipoBarrera": 2, "energia":"2", "tipoMaterial":"1", "tvl": 4.6}
+  ,{ "tipoBarrera": 2, "energia":"2", "tipoMaterial":"2", "tvl": 30.5}
+  ,{ "tipoBarrera": 2, "energia":"2", "tipoMaterial":"3", "tvl": 8.5}
+  ,{ "tipoBarrera": 2, "energia":"3", "tipoMaterial":"1", "tvl": 4.7}
+  ,{ "tipoBarrera": 2, "energia":"3", "tipoMaterial":"2", "tvl": 33.0}
+  ,{ "tipoBarrera": 2, "energia":"3", "tipoMaterial":"3", "tvl": 8.7}
+  ,{ "tipoBarrera": 2, "energia":"4", "tipoMaterial":"1", "tvl": 5.1}
+  ,{ "tipoBarrera": 2, "energia":"4", "tipoMaterial":"2", "tvl": 35.6}
+  ,{ "tipoBarrera": 2, "energia":"4", "tipoMaterial":"3", "tvl": 8.9}
+]

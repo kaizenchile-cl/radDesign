@@ -1,0 +1,196 @@
+[
+    {
+        "id":"1"
+        , "nombre":"n_dia"
+        , "etiqueta":"N° Patients Per Day"
+        , "tipo":"numeric"
+        , "maximo" : "1000"
+        , "minimo" : "1"
+        , "paso" : "1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        ,"valor":"50"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"2"
+        , "nombre":"Gy/patient"
+        , "etiqueta":"Dose Per Patient"
+        , "tipo":"numeric"
+        , "maximo":"1000"
+        , "minimo":"1"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":"3"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"3"
+        , "nombre":"dias/semana"
+        , "etiqueta":"Days Per Week"
+        , "tipo":"numeric"
+		, "valor":"5"
+        , "maximo": "7"
+        , "minimo": "1"
+        , "paso":"1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"energia"
+        , "etiqueta":"Energy"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"6 MV"}, {"id":"2","nombre":"10 MV"}, {"id":"3","nombre":"15 MV"}, {"id":"4","nombre":"18 MV"}, {"id":"5","nombre":"60 MV"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"tipobarrera"
+        , "etiqueta":"Type of Barrier"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Secundaria"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"U"
+        , "etiqueta":"Use Factor (U)"
+        , "tipo":"numeric"
+		, "valor":"0.25"
+        , "maximo": "1000"
+        , "minimo":"1"
+        , "paso":"1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"7"
+        , "nombre":"tipoMaterial"
+        , "etiqueta":"Type of Material"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Concrete"}, {"id":"2","nombre":"Steel"},{"id":"3","nombre":"Lead"}]
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"8"
+        , "nombre":"dScat"
+        , "etiqueta":"Distance Source-Patient [m]"
+        , "tipo":"numeric"
+        ,"maximo":"100"
+        ,"minimo":"1"
+        ,"unidad":"cm"
+        ,"paso":""
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+
+    ,{
+        "id":"9"
+        , "nombre":"distance-"
+        , "etiqueta":"Distance Patient-RPOI"
+        , "tipo":"numeric"
+        , "maximo": ""
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"10"
+        , "nombre":"distanciaFuga"
+        , "etiqueta":"Distance Head-RPOI"
+        , "tipo":"numeric"
+        , "maximo": ""
+        , "minimo": "No Controlada"
+        , "paso": "1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+      "id":"11"
+      , "nombre":"alfa"
+      , "etiqueta":"Patient Scattering Factor"
+      , "tipo":"seleccionSimple"
+      , "tipoOrigen": "json"
+      , "origen": [{"id":"1", "nombre":"Concrete"}, {"id":"2","nombre":"Steel"},{"id":"3","nombre":"Lead"}]
+      , "valor": "id"
+      , "texto":"nombre"
+      , "exito":"Está Correcto"
+      , "error":"Tiene error"
+      , "obligatorio": true
+    }
+    ,{
+      "id":"12"
+      , "nombre":"f"
+      , "etiqueta":"Field Size [m²]"
+      , "tipo":"numeric"
+      , "maximo": "8"
+      , "minimo": "0.1"
+      , "paso": "0.5"
+      , "exito":"Está Correcto"
+      , "error":"Tiene error"
+      , "obligatorio": true
+    }
+    ,{
+      "id":"13"
+      , "nombre":"ConstanteFraccion"
+      , "etiqueta":"Scattering Fraction"
+      , "tipo":"numeric"
+      , "maximo": "400"
+      , "minimo": "400"
+      , "valor": "400"
+      , "exito":"Está Correcto"
+      , "error":"Tiene error"
+      , "obligatorio": true
+    }
+    ,{
+      "id":"14"
+      , "nombre":"ConstanteTransmision"
+      , "etiqueta":"Head Transmission Constant"
+      , "tipo":"numeric"
+      , "maximo": "Math.pow(1.00, -0.3)"
+
+      , "minimo": "400"
+      , "valor": "400"
+      , "exito":"Está Correcto"
+      , "error":"Tiene error"
+      , "obligatorio": true
+    }
+    ,{
+      "id":"15"
+      , "nombre":"clasificacionArea"
+      , "etiqueta":"Design Goal"
+      , "tipo":"seleccionSimple"
+      , "tipoOrigen": "json"
+      , "origen": [{"id":"1", "nombre":"0.1"}, {"id":"2","nombre":"0.02"}]
+      , "valor": "id"
+      ,"texto":"nombre"
+      , "exito":"Está Correcto"
+      , "error":"Tiene error"
+      , "obligatorio": true
+    }
+
+
+]

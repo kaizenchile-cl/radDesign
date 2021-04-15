@@ -1,0 +1,108 @@
+[
+  {
+    "id":"4a"
+    , "nombre":"norma"
+    , "etiqueta":"Norma"
+    , "ayuda": "SRS47: IAEA safety repot series #47 or NCRP 151: NCRP report # 151"
+    , "tipo":"seleccionSimple"
+    , "tipoOrigen": "json"
+    , "origen": [ {"id":"2","nombre":"SRS 47"}, {"id":"1", "nombre":"NCRP 151"}]
+    , "valor": "id"
+    , "texto": "nombre"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+,  {
+    "id":"4"
+    , "nombre":"energia"
+    , "etiqueta":"Energy"
+    , "ayuda": "Energy of the X-Ray of the electron accelerator"
+    , "tipo":"seleccionSimple"
+    , "tipoOrigen": "json"
+    , "dependencia" : "#{norma?0} == 2 || #{norma?0} == 1"
+    , "origen": [{"id":"1", "nombre":"6 MV"}, {"id":"2","nombre":"10 MV"}, {"id":"3","nombre":"18 MV"}, {"id":"4","nombre":"24 MV"}]
+    , "valor": "id"
+    , "texto": "nombre"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+,{
+    "id":"1a"
+    , "nombre":"usaCargaTrabajo"
+    , "etiqueta":"W [Gy/week]"
+    , "ayuda": "Custom: Workload (W) previously calculated or calculated: workload to be calculated"
+    , "tipo":"seleccionSimple"
+    , "tipoOrigen": "json"
+    , "dependencia" : "#{norma?0} == 2 || #{norma?0} == 1"
+    , "origen": [{"id":"2","nombre":"Custom"}, {"id":"1", "nombre":"Calculated"}]
+    , "valor": "id"
+    , "texto": "nombre"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+,
+  {
+    "id":"1b"
+    , "nombre":"cargaTrabajo"
+    , "etiqueta":"W [Gy/week]"
+    , "ayuda" : "Workload"
+    , "tipo":"numeric"
+    , "maximo" : "1000"
+    , "minimo" : "1"
+    , "paso" : "1"
+    , "dependencia" : "(#{norma?0} == 2 || #{norma?0} == 1) && #{usaCargaTrabajo?0} == 2"
+    , "defecto" : "1000"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+,
+  {
+    "id":"1"
+    , "nombre":"n_dia"
+    , "etiqueta":"N° Patients Per Day"
+    , "ayuda": "Indicate the maximum ammount of patients that can be treated per day"
+    , "tipo":"numeric"
+    , "maximo" : "1000"
+    , "minimo" : "1"
+    , "paso" : "1"
+    , "dependencia" : "(#{norma?0} == 2 || #{norma?0} == 1) && #{usaCargaTrabajo} == 1"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "defecto":"50"
+    , "obligatorio": true
+}
+,{
+    "id":"2"
+    , "nombre":"GyPaciente"
+    , "etiqueta":"Dose Per Patient [Gy/treatment]"
+    , "ayuda": "Indicate the average dose per treatment, per patient"
+    , "tipo":"numeric"
+    , "defecto": "3"
+    , "maximo":"1000"
+    , "minimo":"1"
+    , "paso":"0.5"
+    , "dependencia" : "(#{norma?0} == 2 || #{norma?0} == 1) && #{usaCargaTrabajo} == 1"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+,{
+    "id":"3"
+    , "nombre":"diasSemana"
+    , "etiqueta":"Days Per Week"
+    , "ayuda": "Days of the week in which the equipment is used"
+    , "tipo":"numeric"
+	, "defecto":"5"
+    , "maximo": "7"
+    , "minimo": "1"
+    , "paso":"1"
+    , "dependencia" : "(#{norma?0} == 2 || #{norma?0} == 1) && #{usaCargaTrabajo} == 1"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": true
+}
+]

@@ -1,0 +1,223 @@
+[
+  {
+    "id":"1a"
+    , "tipoSalida": "salida"
+    , "nombre": "nCab"
+    , "etiqueta": "Number of Procedures Head"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"#{nroProcCabezaSemana}"
+    }
+  }
+  , {
+    "id":"1b"
+    , "tipoSalida": "salida"
+    , "nombre": "nCuerpo"
+    , "etiqueta": "Number of Procedures Body"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"#{nroProcCuerpoSemana}"
+    }
+  }
+  , {
+    "id":"1"
+    , "tipoSalida": "salida"
+    , "nombre": "P"
+    , "etiqueta": "Dose Limit (P)"
+    , "visible": true
+    , "unidad": "[mGy/sem]"
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"#{nroClasificacionZona} == '1' ? 10 / 100 : 1 / 50"
+    }
+  }
+  ,  {
+    "id":"2"
+    , "tipoSalida": "salida"
+    , "nombre": "dlpBody"
+    , "etiqueta": "DLP Body"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"550"
+    }
+  }
+  ,  {
+    "id":"3"
+    , "tipoSalida": "salida"
+    , "nombre": "kSecBody"
+    , "etiqueta": "k Sec Body"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"Math.round((1.2 * 3e-4 * #{dlpBody} * 1.4 ) * 10000) / 10000"
+    }
+  }
+  ,  {
+    "id":"4"
+    , "tipoSalida": "salida"
+    , "nombre": "dlpHead"
+    , "etiqueta": "DLP Head"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"1200"
+    }
+  }
+  ,  {
+    "id":"5"
+    , "tipoSalida": "salida"
+    , "nombre": "kSecHead"
+    , "etiqueta": "k Sec Head"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"9e-5 * #{dlpHead} * 1.4"
+    }
+  }
+  ,  {
+    "id":"6"
+    , "tipoSalida": "salida"
+    , "nombre": "kSec"
+    , "etiqueta": "Kerma sec"
+    , "visible": true
+    , "unidad": "[mGy/sem]"
+    , "cantidadCaracteres": 5
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"(#{nroProcCuerpoSemana} * #{kSecBody} + #{nroProcCabezaSemana} * #{kSecHead}) / Math.pow(#{d}, 2)"
+    }
+  }
+  ,  {
+    "id":"7"
+    , "tipoSalida": "salida"
+    , "nombre": "B"
+    , "etiqueta": "Transmission Factor (B)"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 8
+    , "expresion": 
+    {
+      "tipo":"formula"
+      ,"texto":"#{P} / ( #{nroFactorOcupacion} * #{kSec} ) "
+    }
+  }
+  , {
+    "id":"8"
+    , "tipoSalida": "salida"
+    , "nombre": "alpha"
+    , "etiqueta": "Alpha (α)"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": {
+        "tipo":"tabla"
+        , "valor":"alpha"
+        , "tabla":"tParametrosTC"
+        , "filtro": [
+          {"campo":"material", "valor":"#{material}"}
+          , {"campo":"energia", "valor":"#{energia}"}
+      ]
+    }
+  }
+  , {
+    "id":"9"
+    , "tipoSalida": "salida"
+    , "nombre": "beta"
+    , "etiqueta": "Beta (β)"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": {
+        "tipo":"tabla"
+        , "valor":"beta"
+        , "tabla":"tParametrosTC"
+        , "filtro": [
+          {"campo":"material", "valor":"#{material}"}
+          , {"campo":"energia", "valor":"#{energia}"}
+      ]
+    }
+    }
+  , {
+    "id":"10"
+    , "tipoSalida": "salida"
+    , "nombre": "gamma"
+    , "etiqueta": "Gamma (γ)"
+    , "visible": true
+    , "unidad": ""
+    , "cantidadCaracteres": 5
+    , "expresion": {
+        "tipo":"tabla"
+        , "valor":"gamma"
+        , "tabla":"tParametrosTC"
+        , "filtro": [
+          {"campo":"material", "valor":"#{material}"}
+          , {"campo":"energia", "valor":"#{energia}"}
+      ]
+    }
+    }
+    ,  {
+      "id":"11"
+      , "tipoSalida": "salida"
+      , "nombre": "x"
+      , "etiqueta": "X"
+      , "visible": false
+      , "unidad": "[cm]"
+      , "cantidadCaracteres": 5
+        , "expresion": 
+      {
+        "tipo":"formula"
+        ,"texto":"Math.round(100 / ( #{alpha} * #{gamma} ) * Math.log((Math.pow(#{B}, -#{gamma}) + #{beta} / #{alpha}) / (1 + #{beta} / #{alpha}))) / 100"
+      }
+    }
+    ,  {
+      "id":"12"
+      , "tipoSalida": "resultado"
+      , "nombre": "x1"
+      , "etiqueta": "Thickness"
+      , "visible": true
+      , "unidad": "[mm]"
+      , "expresion": 
+      {
+        "tipo":"formula"
+        ,"texto":"#{x} > 0 ? #{x} : 0"
+      }
+    }
+    ,  {
+      "id":"13"
+      , "tipoSalida": "resultado"
+      , "nombre": "equivalenteDosisAnual"
+      , "etiqueta": "Ḣ anual"
+      , "visible": true
+      , "unidad": "[mSv/año]"
+      , "cantidadCaracteres": 3
+      , "expresion": 
+      {
+        "tipo":"formula"
+        ,"texto":"2000 * (#{kSec} / 40 ) * Math.pow(10, Math.log(#{B}) / Math.LN10)"
+      }
+    }
+  ]

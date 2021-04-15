@@ -1,0 +1,465 @@
+[{
+  "id": "1b",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "factorOcupacion",
+  "etiqueta": "Factor de ocupación",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{factorOcupacionA?1} < 0 ? #{factorOcupacionB?1} : #{factorOcupacionA?1}"
+  }
+}, {
+  "id": "1a",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "N",
+  "etiqueta": "Number of Procedures (N)",
+  "unidad": "[pac/sem]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{numeroProcedimientosSemana}"
+  }
+}, {
+  "id": "1",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "constanteGamma",
+  "etiqueta": "Gamma (γ)",
+  "unidad": "[mSv m²/h Ci]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{radioisotopo}==1?0.7289:#{radioisotopo}==2?5.291:2.027"
+  }
+}, {
+  "id": "2",
+  "tipoSalida": "salida",
+  "visible": false,
+  "nombre": "fatorAtenuacionPaciente",
+  "etiqueta": "Attenuation on Patient Factor (F Pac.)",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{radioisotopo} == 3 ? 1 : 0.643"
+  }
+}, {
+  "id": "26",
+  "tipoSalida": "salida",
+  "visible": false,
+  "nombre": "factorDosis",
+  "etiqueta": "Dose Factor",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{radioisotopo}==1?1:#{radioisotopo}==2?3.4:2.027"
+  }
+}, {
+  "id": "3",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "constGammaFatenPaciente",
+  "etiqueta": "Gamma Attenuation on Patient Factor (γ aten)",
+  "unidad": "[mSv m²/h Ci]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{constanteGamma} * #{fatorAtenuacionPaciente}"
+  }
+}, {
+  "id": "4",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "semiperiodoDesientegracion",
+  "etiqueta": "Half Life (T 1/2)",
+  "unidad": "[hr]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "(#{radioisotopo}==1?6:#{radioisotopo}==2?1.83:192)"
+  }
+}, {
+  "id": "5",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "p",
+  "etiqueta": "(Weekly Dose (Hw))",
+  "unidad": "[μSv/sem]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "(#{clasificacionArea}==1?100:20)"
+  }
+}, {
+  "id": "6a",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "actividadRetenidaPreImagen",
+  "etiqueta": "Pre-Imaging Retained Activity",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{radioisotopo}==2?0.85:1"
+  }
+}, {
+  "id": "7",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "factorAutoatenuacion",
+  "etiqueta": "Attenuation Factor",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "0.85"
+  }
+}, {
+  "id": "8",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "factorReduccion",
+  "etiqueta": "Reduction Factor (Rt)",
+  "unidad": "[h]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "1.443*(#{semiperiodoDesientegracion}/#{tiempoCaptacion})*[1-Math.exp(-0.693*#{tiempoCaptacion}/#{semiperiodoDesientegracion})]"
+  }
+}, {
+  "id": "9",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "dosisSemanalAporteBox1",
+  "etiqueta": "Weekly Dose from Box 1 (Hwc)",
+  "unidad": "[μSv/sem]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.round(#{factorDosis} * #{actividadPaciente} * #{tiempoCaptacion} * #{numeroProcedimientosSemana} * #{factorReduccion} / Math.pow(#{distanciaBox1PuntoInteresRadiologico}, 2) * 10000) / 10000"
+  }
+}, {
+  "id": "10",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "dosisSemanalAporteBox2",
+  "etiqueta": "Weekly Dose from Box 2 (Hw2)",
+  "unidad":"[μSv/sem]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.round(#{factorDosis} * #{actividadPaciente} * #{tiempoCaptacion} * #{numeroProcedimientosSemana} * #{factorReduccion} / Math.pow(#{distanciaBox2PuntoInteresRadiologico}, 2) * 10000) / 10000"
+  }
+}, {
+  "id": "11",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "dosisSemanalAporteBox3",
+  "etiqueta": "Weekly Dose from Box 3 (Hw3)",
+  "unidad":"[μSv/sem]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.round(#{factorDosis} * #{actividadPaciente} * #{tiempoCaptacion} * #{numeroProcedimientosSemana} * #{factorReduccion} / Math.pow(#{distanciaBox3PuntoInteresRadiologico}, 2) * 10000) / 10000"
+  }
+}, {
+  "id": "12",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "factorReduccionImagen",
+  "etiqueta": "Imaging Reduction Factor (Rti)",
+  "unidad": "[h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "1.443*(#{semiperiodoDesientegracion}/#{tiempoImagen})*[1-Math.exp(-0.693*#{tiempoImagen}/#{semiperiodoDesientegracion})]"
+  }
+}, {
+  "id": "13",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Fu",
+  "etiqueta": "Uptake Time Decay Factor(Fu)",
+  "unidad": "",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.exp(-0.693 * #{tiempoCaptacion} * 60 / 110)"
+  }
+}, {
+  "id": "23",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "nSalas",
+  "etiqueta": "Number of Rooms",
+  "unidad": "",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "(#{distanciaBox1PuntoInteresRadiologico?0} > 0 ? 1 : 0) + (#{distanciaBox2PuntoInteresRadiologico?0} > 0 ? 1 : 0) + (#{distanciaBox3PuntoInteresRadiologico?0} > 0 ? 1 : 0) + (#{distanciaImagenPuntoInteresRadiologico?0} > 0 ? 1 : 0)"
+  }
+}, {
+  "id": "14",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "dosisSemanalAporteSalaImagen",
+  "etiqueta": "Weekly Dose from image room (Hwi)",
+  "unidad": "[μSv/sem]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.round(#{factorDosis} * #{actividadPaciente} * #{tiempoImagen} * (#{numeroProcedimientosSemana}) * #{factorReduccionImagen} * #{Fu} * #{retencionOrina} / Math.pow(#{distanciaImagenPuntoInteresRadiologico}, 2) * 10000) / 10000"
+  }
+}, {
+  "id": "15",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "dosisTotal",
+  "etiqueta": "Total Dose (Hwt)",
+  "unidad": "[mSv/sem]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{dosisSemanalAporteBox1?0} + #{dosisSemanalAporteBox2?0} + #{dosisSemanalAporteBox3?0} + #{dosisSemanalAporteSalaImagen?0}"
+  }
+}, {
+  "id": "36",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Dprima1",
+  "etiqueta": "Instant Dose Rate 1 (D₁')",
+  "unidad": "[mSv/h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{constGammaFatenPaciente} * #{actividadRetenidaPreImagen} * #{actividadPaciente} / Math.pow(#{distanciaBox1PuntoInteresRadiologico}, 2) / 1000 / 40"
+  }
+}, {
+  "id": "37",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Dprima2",
+  "etiqueta": "Instant Dose Rate 2 (D₂')",
+  "unidad": "[mSv/h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{constGammaFatenPaciente} * #{actividadRetenidaPreImagen} * #{actividadPaciente} / Math.pow(#{distanciaBox2PuntoInteresRadiologico}, 2) / 1000 / 40"
+  }
+}, {
+  "id": "38",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Dprima3",
+  "etiqueta": "Instant Dose Rate 3 (D₃')",
+  "unidad": "[mSv/h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{constGammaFatenPaciente} * #{actividadRetenidaPreImagen} * #{actividadPaciente} / Math.pow(#{distanciaBox3PuntoInteresRadiologico}, 2) / 1000 / 40"
+  }
+}, {
+  "id": "39",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Dprima4",
+  "etiqueta": "Instant Dose Rate 4 (Dᵢ')",
+  "unidad": "[mSv/h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{constGammaFatenPaciente} * #{actividadRetenidaPreImagen} * #{actividadPaciente} / Math.pow(#{distanciaImagenPuntoInteresRadiologico}, 2) / 1000 / 40"
+  }
+}, {
+  "id": "40",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "Dprima",
+  "etiqueta": "Instant Dose Rate (D')",
+  "unidad": "[mSv/h]",
+  "cantidadCaracteres": 6,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{Dprima1?0} + #{Dprima2?0} + #{Dprima3?0} + #{Dprima4?0}"
+  }
+}, {
+  "id": "16",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "coeficienteTransmision",
+  "etiqueta": "Transmission Coefficient Factor (B)",
+  "unidad":"",
+  "expresion": {
+    "tipo": "formula",
+    "texto": "(#{p} / (#{dosisTotal} * #{factorOcupacion})).toExponential(5)",
+    "ignoreFaltantes" : true
+  }
+}, {
+  "id": "17",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "tvl",
+  "etiqueta": "N° of TVL",
+  "unidad": "",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "Math.log(1 / #{coeficienteTransmision}) / Math.LN10"
+  }
+}, {
+  "id": "18",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "alpha",
+  "etiqueta": "Alpha (α)",
+  "unidad":"",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo":"tabla"
+    , "valor":"alpha"
+    ,"tabla":"tParametrosMN"
+    ,"filtro":[
+        {"campo":"isotopo","valor":"#{radioisotopo}"}
+        , {"campo":"material","valor":"#{material}"}
+     ]
+}
+}, {
+  "id": "19",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "beta",
+  "etiqueta": "Beta (β)",
+  "unidad":"",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo":"tabla"
+    , "valor":"beta"
+    ,"tabla":"tParametrosMN"
+    ,"filtro":[
+        {"campo":"isotopo","valor":"#{radioisotopo}"}
+        , {"campo":"material","valor":"#{material}"}
+     ]
+  }
+}, {
+  "id": "20",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "gamma",
+  "etiqueta": "Gamma (γ)",
+  "unidad":"",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo":"tabla"
+    , "valor":"gamma"
+    ,"tabla":"tParametrosMN"
+    ,"filtro":[
+        {"campo":"isotopo","valor":"#{radioisotopo}"}
+        , {"campo":"material","valor":"#{material}"}
+     ]
+  }
+}, {
+  "id": "27",
+  "tipoSalida": "salida",
+  "visible": true,
+  "nombre": "nTVL",
+  "etiqueta": "TVL",
+  "unidad":"[cm]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "(#{radioisotopo} == 1 || #{radioisotopo} == 3) ? (#{material} == 1 ? 1.1 : #{material} == 2 ? 9.79 : 5.6) : null"
+  }
+}, {
+  "id": "24",
+  "tipoSalida": "resultado",
+  "visible": true,
+  "nombre": "espesor1",
+  "etiqueta": "Thickness",
+  "unidad":"[cm]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{tvl} * #{nTVL}"
+  }
+}, {
+  "id": "21",
+  "tipoSalida": "resultado",
+  "visible": true,
+  "nombre": "espesor",
+  "etiqueta": "Thickness",
+  "unidad":"[cm]",
+  "cantidadCaracteres": 5,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{coeficienteTransmision} < 1 ? (1/(#{alpha} * #{gamma}) ) * Math.log((Math.pow(#{coeficienteTransmision}, -#{gamma}) + (#{beta}/#{alpha})) / (1 + ( #{beta}/#{alpha}))) : 'N/A'"
+  }
+}, {
+  "id": "22",
+  "tipoSalida": "resultado",
+  "visible": true,
+  "nombre": "Df'",
+  "etiqueta": "Dose Rate",
+  "unidad":"[𝛍sv/hr]",
+  "cantidadCaracteres": 9,
+  "expresion": {
+    "tipo": "formula",
+    "texto": "#{Dprima} * #{coeficienteTransmision} * 1000"
+  }
+}
+, {
+  "id": "salida 1"
+  ,"tipoSalida":"resultado"
+  ,"nombre":"_nombreTipoBarrera"
+  ,"etiqueta":"tipo"
+  ,"visible":false
+  ,"unidad": ""
+  ,"expresion":
+    {
+      "tipo":"formula"
+      ,"texto":"\"Secondary\""
+    }
+}
+, {
+  "id": "salida 2"
+  ,"tipoSalida":"resultado"
+  ,"nombre":"_materialBarrera"
+  ,"etiqueta":"material"
+  ,"visible":false
+  ,"unidad": ""
+  ,"expresion":
+    {
+      "tipo":"formula"
+      ,"texto":"#{material} == 1 ? \"Lead\" : #{material} == 2 ? \"Concrete\" : \"Steel\""
+    }
+}
+, {
+  "id": "salida 3"
+  ,"tipoSalida":"resultado"
+  ,"nombre":"_espesorBarrera"
+  ,"etiqueta":"espesor"
+  ,"visible":false
+  ,"unidad": ""
+  ,"expresion":
+    {
+      "tipo":"formula"
+      ,"texto":"Number.parseFloat(\"#{espesor}\").toPrecision(4)"
+    }
+}
+, {
+  "id": "salida 4"
+  ,"tipoSalida":"resultado"
+  ,"nombre":"_distanciaBarrera"
+  ,"etiqueta":"distancia"
+  ,"visible":false
+  ,"unidad": ""
+  ,"expresion":
+    {
+      "tipo":"formula"
+      ,"texto":"#{distanciaBox1PuntoInteresRadiologico}"
+    }
+}
+]

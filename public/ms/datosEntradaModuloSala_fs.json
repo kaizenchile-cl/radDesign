@@ -1,0 +1,67 @@
+[
+    {
+        "id":"1"
+        , "nombre":"Número de Pacientes por Semana"
+        , "etiqueta":"N° Patients Per Week"
+        , "tipo":"numeric"
+		, "valor":"150"
+        ,"maximo":"200"
+        , "minimo": "0"
+        , "paso": "5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"2"
+        , "nombre":"Tipo Barrera"
+        , "etiqueta":"Type of Barrier"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Pared Lateral"}, {"id":"2","nombre":"Bucky de pecho secundario"}, {"id":"3","nombre":"pared secundari"}, {"id":"4","nombre":" Piso Primario"}, {"id":"5","nombre":"Piso fuera de mesa"}, {"id":"6","nombre":"Techo"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":""
+        , "obligatorio": true
+    }     
+    ,{
+        "id":"3"
+        , "nombre":"factorOcupacion"
+        , "etiqueta":"Occupancy Factor (T)"
+        , "tipo":"numeric"
+		, "valor":"1"
+        , "maximo":"1"
+        , "minimo":"0"
+        , "paso": "0.05"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"Distancy to RIP[m]"
+        , "etiqueta":"Distance to RPOI [m]"
+        , "tipo":"numeric"
+        , "maximo":"10"
+        , "minimo":"0"
+        , "paso": "0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"Clasificacion area"
+        , "etiqueta":"Design Goal"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Controlada"}, {"id":"2","nombre":"No Controlada"}]
+        , "valor": "id"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

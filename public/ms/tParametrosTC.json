@@ -1,0 +1,6 @@
+[
+  {"energia": 1, "material":"1", "alpha": 2.246, "beta": 5.73, "gamma": 0.547}
+  , {"energia":1, "material":"2", "alpha": 3.83e-2, "beta": 1.42e-2, "gamma": 0.658}
+  , {"energia":2, "material":"1", "alpha": 2.009, "beta": 3.99, "gamma": 0.342}
+  , {"energia":2, "material":"2", "alpha": 0.0336, "beta": 0.0122, "gamma": 0.519}
+]

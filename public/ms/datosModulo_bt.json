@@ -1,0 +1,104 @@
+[
+    {
+        "id":"0"
+        , "nombre":"norma"
+        , "etiqueta":"Reference"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"SRS47"}, {"id":"3", "nombre":"McGINLEY"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"1"
+        , "nombre":"tipoIsotopo"
+        , "etiqueta":"Radioisotope"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Ir192"}, {"id":"2", "nombre":"Co60"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"2"
+        , "nombre":"nProcedimientos"
+        , "etiqueta":"N° of Treatments Per Week"
+        , "tipo":"numeric"
+        , "maximo":"1000"
+        , "minimo":"1"
+        , "paso":"10"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":"30"
+        , "obligatorio": true
+    }     
+    ,{
+        "id":"3"
+        , "nombre":"tiempoExposicion"
+        , "etiqueta":"Source Exposition Time [min]"
+        , "tipo":"numeric"
+        , "maximo": "1000"
+        , "minimo": "1"
+        , "paso":"1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"actividadFuente"
+        , "etiqueta":"Nominal Activity [Ci]"
+        , "tipo":"numeric"
+        , "maximo": "20"
+        , "minimo": "1"
+        , "paso":"0.1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+   ,{
+        "id":"5"
+        , "nombre":"Maximun Activity Source"
+        , "etiqueta":"Max Activity [Ci]"
+        , "tipo":"numeric"
+		, "valor":"12"
+        , "maximo": "20"
+        , "minimo": "1"
+        , "paso":"0.1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+   ,{
+        "id":"6"
+        , "nombre":"IDRMaximo"
+        , "etiqueta":"Max IDR [μSv/h]"
+        , "tipo":"numeric"
+		, "valor":"7.5"
+        , "maximo": "20"
+        , "minimo": "1"
+        , "paso":"0.1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+   ,{
+        "id":"7"
+        , "nombre":"PacMaximo"
+        , "etiqueta":"Max N° of Patient Per 8 Hours"
+        , "tipo":"numeric"
+		, "valor":"5"
+        , "maximo": "20"
+        , "minimo": "1"
+        , "paso":"0.1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": false
+    }
+ ]

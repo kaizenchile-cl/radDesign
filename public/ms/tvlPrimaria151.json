@@ -1,0 +1,29 @@
+[
+    {"energia": "1", "material": "2", "tvl1": "35", "tvle": "20"}
+    , {"energia": "1", "material": "3", "tvl1": "9.9", "tvle": "9.9"}
+    , {"energia": "1", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "2", "material": "2", "tvl1": "37", "tvle": "33"}
+    , {"energia": "2", "material": "3", "tvl1": "10", "tvle": "10"}
+    , {"energia": "2", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "3", "material": "2", "tvl1": "41", "tvle": "37"}
+    , {"energia": "3", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "3", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "4", "material": "2", "tvl1": "44", "tvle": "41"}
+    , {"energia": "4", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "4", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "5", "material": "2", "tvl1": "45", "tvle": "43"}
+    , {"energia": "5", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "5", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "6", "material": "2", "tvl1": "46", "tvle": "44"}
+    , {"energia": "6", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "6", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "7", "material": "2", "tvl1": "49", "tvle": "46"}
+    , {"energia": "7", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "7", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "8", "material": "2", "tvl1": "51", "tvle": "49"}
+    , {"energia": "8", "material": "3", "tvl1": "11", "tvle": "11"}
+    , {"energia": "8", "material": "1", "tvl1": "5.7", "tvle": "5.7"}
+    , {"energia": "9", "material": "2", "tvl1": "21", "tvle": "21"}
+    , {"energia": "9", "material": "3", "tvl1": "7", "tvle": "7"}
+    , {"energia": "9", "material": "1", "tvl1": "4", "tvle": "4"}
+]

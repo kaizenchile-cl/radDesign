@@ -1,0 +1,201 @@
+[
+    {
+        "id":"1"
+        , "nombre":"tipoBarrera"
+        , "etiqueta":"Type of Barrier"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Wall"}, {"id":"2", "nombre":"Maze Wall"}, {"id":"3", "nombre":"Dose at Door"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"2"
+        , "nombre":"distanciaFuenteMuro"
+        , "etiqueta":"Distance RPOI-Maze [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 2"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"4"
+        , "nombre":"distanciaFuenteMuro"
+        , "etiqueta":"Distance Isocenter-RPOI [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"clasificacionZona"
+        , "etiqueta":"Design Goal"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "dependencia": "#{tipoBarrera} != 3"
+        , "origen": [{"id":"1", "nombre":"Controlled (151)"}, {"id":"3", "nombre":"Controlled (47)"}, {"id":"2","nombre":"Non Controlled (151)"}, {"id":"4","nombre":"Non Controlled (47)"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"8"
+        , "nombre":"sMaterial"
+        , "etiqueta":"Type of Material"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "dependencia": "#{tipoBarrera} != 3"
+        , "origen": [{"id":"1", "nombre":" Lead"}, {"id":"2","nombre":"Concrete"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"7"
+        , "nombre":"factorOcupacion"
+        , "etiqueta":"Ocuppancy Factor (T)"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "dependencia": "#{tipoBarrera} != 3"
+        , "origen": [{"id":"1", "nombre":" 1 : Total"}, {"id":"0.5","nombre":"1/2 : Partial"}, {"id":"0.125","nombre":"1/8  : Door, Hallway"}, {"id":"0.1","nombre":"1/10"}, {"id":"0.05","nombre":"1/20  : Low Ocuppancy"}, {"id":"0.025","nombre":"1/40  : Outside"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+
+    , {
+        "id":"9"
+        , "nombre":"alpha1"
+        , "etiqueta":"Alpha 1"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"10"
+        , "nombre":"alpha2"
+        , "etiqueta":"Alpha 2"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"11"
+        , "nombre":"d1"
+        , "etiqueta":"Distance 1 [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"13"
+        , "nombre":"d2"
+        , "etiqueta":"Distance 2 [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"14"
+        , "nombre":"d3"
+        , "etiqueta":"Distance 3 [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"14a"
+        , "nombre":"dPuerta"
+        , "etiqueta":"Distance Source-Door [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"15"
+        , "nombre":"a1"
+        , "etiqueta":"Area 1 [m²]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"16"
+        , "nombre":"a2"
+        , "etiqueta":"Area 2 [m²]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3 && #{d3?0} > 0"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"17"
+        , "nombre":"espesorLaberinto"
+        , "etiqueta":"Maze Wall Tickness [cm]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "dependencia": "#{tipoBarrera} == 3"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

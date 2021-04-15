@@ -1,0 +1,4 @@
+[
+  {"id":"1", "tipoSalida": "salida", "nombre": "x", "etiqueta": "x", "formula": "#{nroProcCuerpoSemana}"}
+  , {"id":"2", "tipoSalida": "resultado", "nombre": "y", "etiqueta": "y", "formula": "this.buscaTabla('tParametrosTC', {'material': #{material} })"}
+]

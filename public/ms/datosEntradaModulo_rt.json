@@ -1,0 +1,189 @@
+[
+    {
+        "id":"5"
+        , "nombre":"tipoBarrera"
+        , "etiqueta":"Type of Barrier"
+        , "ayuda": "Identify wether the barrier is primary or secondary"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Primary"}, {"id":"2", "nombre":"Secondary"}, {"id":"3", "nombre":"Maze/Door"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"9"
+        , "nombre":"clasificacionArea"
+        , "etiqueta":"Design Goal"
+        , "ayuda": "Criteria according to AAPM 108. Conrolled areas have dose limits for OEWs, and non controlled areas have dose limits for public"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"3", "nombre":"Controlled"}, {"id":"4","nombre":"Non Controlled"}, {"id":"5","nombre":"Other"}]
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+,{
+    "id":"7oa"
+    , "nombre":"otraArea"
+    , "etiqueta":"Dose Limit (μSv/sem)"
+    , "ayuda": ""
+    , "tipo":"numeric"
+	, "defecto":"5"
+    , "maximo": "7.5"
+    , "minimo": "1"
+    , "paso":"1"
+    , "dependencia" : "#{clasificacionArea?0} == 5"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": false
+}
+    ,{
+        "id":"10"
+        , "nombre":"tipoMaterial"
+        , "etiqueta":"Material"
+        , "ayuda": "Select the desired material for calculating barrier width"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Lead"}, {"id":"2","nombre":"Concrete"},{"id":"3","nombre":"Steel"}]
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"Barrera"
+        , "etiqueta":"Distance Isocenter-RPOI [m]"
+        , "ayuda": "You must imput the distance (in meters) between isocenter and radiological point of interest(0.3 [m] away from the barrier)"
+        , "tipo":"numeric"
+        ,"maximo":""
+        ,"minimo":""
+        ,"paso":""
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"8"
+        , "nombre":"U"
+        , "etiqueta":"Use Factor (U)"
+        , "ayuda": "Use factor. Typically 0.25"
+        , "tipo":"numeric"
+		, "defecto": "0.25"
+        , "maximo": ""
+        , "minimo": "0"
+        , "paso":"0.5" 
+        , "dependencia": "[1].indexOf(#{tipoBarrera}) > -1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"10s"
+        , "nombre":"distanciaFuga"
+        , "etiqueta":"Distance Head-RPOI"
+        , "ayuda": "Distance from the head leakage to RPOI"
+        , "tipo":"numeric"
+        , "maximo": ""
+        , "minimo": "No Controlada"
+        , "paso": "1"
+        , "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"7"
+        , "nombre":"T"
+        , "etiqueta":"Occupancy Factor (T)"
+        , "ayuda": "Select the occupancy factor of the room on the other side of the barrier"
+        , "tipo":"numeric"
+		, "defecto": "1"
+        , "maximo": "1000"
+        , "minimo":"1"
+        , "paso":"1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"133s"
+        , "nombre":"forig"
+        , "etiqueta":"Field Size"
+        , "ayuda": "Indicate the maximum field size opening of the equipment"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json" 
+        , "origen": [{"id":"1", "nombre":"20x20"}, {"id":"2","nombre":"35x35"}, {"id":"3","nombre":"40x40"}]
+        , "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+      }
+      ,{
+        "id":"13s"
+        , "nombre":"anguloDispersion"
+        , "etiqueta":"Scattering Angle"
+        , "ayuda": "Indicathe the scattering angle"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json" 
+        , "origen": [{"id":"1", "nombre":"10°"}, {"id":"2","nombre":"20°"}, {"id":"3","nombre":"30°"}, {"id":"4","nombre":"45°"}, {"id":"5","nombre":"60°"}, {"id":"6","nombre":"90°"}, {"id":"7","nombre":"135°"}, {"id":"8","nombre":"150°"}]
+        , "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+      }
+    ,{
+        "id":"7pre"
+        , "nombre":"usaIdr"
+        , "etiqueta":"Use IDR?"
+        , "ayuda": ""
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Yes"}, {"id":"2","nombre":"No"}]
+        , "valor": "id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+,{
+    "id":"7o"
+    , "nombre":"idrMax"
+    , "etiqueta":"Max IDR [µSv/h]"
+    , "ayuda": "Instant dose rate limit"
+    , "tipo":"numeric"
+	, "defecto":"7.5"
+    , "maximo": "7.5"
+    , "minimo": "1"
+    , "paso":"1"
+    , "dependencia" : "#{usaIdr?0} == 1"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": false
+}
+,{
+    "id":"6o"
+    , "nombre":"D0max"
+    , "etiqueta":"DR0 [Gy/min]"
+    , "ayuda": "Dose rate in isocenter(1 [m])"
+    , "tipo":"numeric"
+    , "maximo": "15"
+    , "minimo": "1"
+    , "paso":"1"
+    , "defecto": "12"
+    , "dependencia" : "#{usaIdr?0} == 1"
+    , "exito":"Está Correcto"
+    , "error":"Tiene error"
+    , "obligatorio": false
+}
+]

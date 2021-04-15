@@ -1,0 +1,31 @@
+[
+  {"material": 2, "angulo": 1, "energia": 1,"tvl": 36.7}
+  , {"material": 2, "angulo": 1, "energia": 2,"tvl": 41.0}
+  , {"material": 2, "angulo": 1, "energia": 3,"tvl": 44.9}
+  , {"material": 2, "angulo": 1, "energia": 4,"tvl": 47.7}
+
+  , {"material": 2, "angulo": 3, "energia": 1,"tvl": 26.1}
+  , {"material": 2, "angulo": 3, "energia": 2,"tvl": 27.5}
+  , {"material": 2, "angulo": 3, "energia": 3,"tvl": 28.8}
+  , {"material": 2, "angulo": 3, "energia": 4,"tvl": 29.3}
+
+  , {"material": 2, "angulo": 4, "energia": 1,"tvl": 22.9}
+  , {"material": 2, "angulo": 4, "energia": 2,"tvl": 23.3}
+  , {"material": 2, "angulo": 4, "energia": 3,"tvl": 23.8}
+  , {"material": 2, "angulo": 4, "energia": 4,"tvl": 24.0}
+
+  , {"material": 2, "angulo": 5, "energia": 1,"tvl": 20.5}
+  , {"material": 2, "angulo": 5, "energia": 2,"tvl": 20.9}
+  , {"material": 2, "angulo": 5, "energia": 3,"tvl": 21.1}
+  , {"material": 2, "angulo": 5, "energia": 4,"tvl": 21.2}
+
+  , {"material": 2, "angulo": 6, "energia": 1,"tvl": 17.1}
+  , {"material": 2, "angulo": 6, "energia": 2,"tvl": 17.3}
+  , {"material": 2, "angulo": 6, "energia": 3,"tvl": 17.4}
+  , {"material": 2, "angulo": 6, "energia": 4,"tvl": 17.5}
+
+  , {"material": 2, "angulo": 7, "energia": 1,"tvl": 14.4}
+  , {"material": 2, "angulo": 7, "energia": 2,"tvl": 14.4}
+  , {"material": 2, "angulo": 7, "energia": 3,"tvl": 14.5}
+  , {"material": 2, "angulo": 7, "energia": 4,"tvl": 14.5}
+]

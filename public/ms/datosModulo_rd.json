@@ -1,0 +1,69 @@
+[
+    {
+        "id":"1"
+        , "nombre":"alimentacion"
+        , "etiqueta":"Power Supply"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Monofásica"}, {"id":"2", "nombre":"Potencial Constante"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"1b"
+        , "nombre":"usaCargaTrabajo"
+        , "etiqueta":"W"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"2","nombre":"Custom"}, {"id":"1", "nombre":"Calculated"}]
+        , "valor": "1000"
+        , "texto": "nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"cargaTrabajo"
+        , "etiqueta":"W [mA/week]"
+        , "tipo":"numeric"
+        , "maximo" : "1000"
+        , "minimo" : "1"
+        , "paso" : "1"
+        , "dependencia" : "#{usaCargaTrabajo} == 2"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        ,"valor":""
+        , "obligatorio": true    
+    }
+    ,  {
+        "id":"2"
+        , "nombre":"tipoRadiografia"
+        , "etiqueta":"Type of Radiography"
+        , "tipo":"seleccionSimple"
+        , "dependencia" : "#{usaCargaTrabajo} == 1"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"1", "nombre":"Intraoral Baja"}, {"id":"2", "nombre":"Intraoral Media"}, {"id":"3", "nombre":"Intraoral Alta"}, {"id":"4", "nombre":"Panorámica Baja"}, {"id":"5", "nombre":"Panorámica Media"}, {"id":"6", "nombre":"Panorámica Alta"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"kVp"
+        , "etiqueta":"kVp"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[{"id":"50", "nombre":"50"}, {"id":"70", "nombre":"70"}, {"id":"90", "nombre":"90"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

@@ -1,0 +1,116 @@
+[
+    {
+        "id":"1"
+        , "nombre":"tipoBarrera"
+        , "etiqueta":"Type of Barrier"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Primaria"}, {"id":"2","nombre":"Secundaria"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,  {
+        "id":"3"
+        , "nombre":"u"
+        , "etiqueta":"Use Factor (U)"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen":[
+            {"id":"1", "nombre":"1", "dependencia": "[1].indexOf(#{tipoBarrera}) > -1"}
+            , {"id":"0.4", "nombre":"0.4"}
+            , {"id":"0.2", "nombre":"0.2"}
+            , {"id":"0", "nombre":"0", "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"}
+        ]
+        , "valor":"0.25"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"fuga"
+        , "etiqueta":"Leakage"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [
+            {"id":"1", "nombre":"Sin Fuga", "dependencia": "[1].indexOf(#{tipoBarrera}) > -1"}
+            , {"id":"2","nombre":"Máxima", "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"}
+            , {"id":"3","nombre":"Nominal", "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"}
+        ]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "dependencia": "[2].indexOf(#{tipoBarrera}) > -1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"area"
+        , "etiqueta":"Type of Barrier"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Controlada"}, {"id":"2","nombre":"No Controlada"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"material"
+        , "etiqueta":"Material"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Acero"}, {"id":"2","nombre":"Concreto"}, {"id":"3","nombre":"Plomo"}, {"id":"4","nombre":"Vidro Plomado"}, {"id":"5","nombre":"Yeso"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"t"
+        , "etiqueta":"Occupancy Factor (T)"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"1"}, {"id":"0.5","nombre":"1/2"}, {"id":"0.2","nombre":"1/5"}, {"id":"0.05","nombre":"1/20"}, {"id":"0.025","nombre":"1/40"}]
+        , "valor":"1"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"2"
+        , "nombre":"distancia"
+        , "etiqueta":"Distance [m]"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"2b"
+        , "nombre":"B"
+        , "etiqueta":"α"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.1"
+        , "valor": "0.1"
+        , "dependencia" : "[1].indexOf(#{tipoBarrera}) > -1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

@@ -1,0 +1,15 @@
+[
+{
+        "id":"2"
+        , "nombre":"pacientesSemana"
+        , "etiqueta":"Patients Per Week"
+        , "tipo":"numeric"
+        , "maximo":"1000"
+        , "minimo":"1"
+        , "paso":"10"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":""
+        , "obligatorio": true
+    }     
+]

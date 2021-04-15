@@ -1,0 +1,11 @@
+[
+  {"id":"9", "tipoSalida": "salida", "nombre": "kerma", "etiqueta": "AKR", "expresion": {"tipo":"formula","texto":"#{nroProcCuerpoSemana}"}}
+  , {"id":"10", "tipoSalida": "salida", "nombre": "tExposicionSemanal", "etiqueta": "t exp sem", "expresion": {"tipo":"formula", "texto":"#{nProcedimientos}*#{tiempoExposicion}"}}
+  , {"id":"11", "tipoSalida": "salida", "nombre":"tvl", "etiqueta": "TVL", "expresion": {"tipo":"tabla", "valor":"tvl","tabla":"tvlParametros","filtro":[{"campo":"isotopo","valor":"#{tipoIsotopo}"},{"campo":"tipoMaterial","valor":"#{sMaterial}"}]}}
+  , {"id":"12", "tipoSalida": "salida", "nombre":"hw", "etiqueta": "Hw [mSv / semana]", "expresion":{"tipo":"formula", "texto":"#{clasificacionZona}==1?0.1:0.02"}}
+  , {"id":"13", "tipoSalida": "salida", "nombre":"t", "etiqueta":"Factor T", "expresion":{"tipo":"formula","texto":"#{factorOcupacion}"}}
+  , {"id":"14", "tipoSalida": "salida", "nombre":"w", "etiqueta":"W Carga de trabajo", "expresion":{"tipo":"formula","texto":"#{kerma}*#{tExposicionSemanal}"}}
+  , {"id":"15", "tipoSalida": "salida", "nombre":"b", "etiqueta":"B", "expresion":{"tipo":"formula","texto":"#{w}*#{t}"}}
+  , {"id":"16", "tipoSalida": "salida", "nombre":"nTVL", "etiqueta":"Nº TVL", "expresion":{"tipo":"formula","texto":"-log(#{b})"}}
+  , {"id":"17", "tipoSalida": "resultado", "nombre":"espesor", "etiqueta":"Espesor de muro", "expresion":{"tipo":"formula","texto":"#{nTVL}*#{tvl}"}}
+]

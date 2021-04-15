@@ -1,0 +1,7 @@
+[
+  {"id":"8", "tipoSalida": "salida", "nombre": "hw", "etiqueta": "Hw [mSv/tExposicionSemanal]", "expresion": {"tipo":"formula","texto":"#{clasificacionZona}==1?0.1:0.02"}}
+  , {"id":"9", "tipoSalida": "salida", "nombre":"t", "etiqueta":"Factor T", "expresion":{"tipo":"formula","texto":"#{factorOcupacion}"}}
+  , {"id":"10", "tipoSalida": "salida", "nombre":"k0", "etiqueta": "K0", "expresion": {"tipo":"tabla", "valor":"tvl","tabla":"tvlParametros","filtro":[{"campo":"isotopo","valor":"#{tipoIsotopo}"},{"campo":"tipoMaterial","valor":"#{sMaterial}"}]}}
+  , {"id":"11", "tipoSalida": "salida", "nombre":"b", "etiqueta": "B", "expresion":{"tipo":"formula", "texto":""}}
+  , {"id":"12", "tipoSalida": "salida", "nombre":"x", "etiqueta": "X", "expresion":{"tipo":"formula", "texto":""}}
+]

@@ -1,0 +1,24 @@
+[
+  {"tipoBarrera": 2, "barrera": 1, "material": 1, "n": 0.5515, "alpha": 2.367, "beta": 14.23, "gamma": 0.6263}
+  , {"tipoBarrera": 2, "barrera": 2, "material": 1, "n": 0.1939, "alpha": 2.494, "beta": 17.92, "gamma": 0.5903}
+  , {"tipoBarrera": 2, "barrera": 3, "material": 1, "n": 1.707, "alpha": 2.482, "beta": 18.94, "gamma": 0.7005}
+  , {"tipoBarrera": 2, "barrera": 1, "material": 2, "n": 0.5515, "alpha": 0.03568, "beta": 0.1185, "gamma": 0.6104}
+  , {"tipoBarrera": 2, "barrera": 2, "material": 2, "n": 0.1939, "alpha": 0.03691, "beta": 0.1422, "gamma": 0.5124}
+  , {"tipoBarrera": 2, "barrera": 3, "material": 2, "n": 1.707, "alpha": 0.03675, "beta": 0.1358, "gamma": 0.5364}
+  
+  , {"tipoBarrera": 1, "barrera": 1, "material": 1, "n": 7.269, "alpha": 2.402, "beta": 13.15, "gamma": 0.9916}
+  , {"tipoBarrera": 1, "barrera": 2, "material": 1, "n": 3.605, "alpha": 2.345, "beta": 10.56, "gamma": 0.8309}
+  , {"tipoBarrera": 1, "barrera": 3, "material": 1, "n": 3.821, "alpha": 2.482, "beta": 13.48, "gamma": 0.8003}
+  , {"tipoBarrera": 1, "barrera": 1, "material": 2, "n": 7.269, "alpha": 0.03645, "beta": 0.0953, "gamma": 0.7748}
+  , {"tipoBarrera": 1, "barrera": 2, "material": 2, "n": 3.605, "alpha": 0.03494, "beta": 0.07549, "gamma": 0.5746}
+  , {"tipoBarrera": 1, "barrera": 3, "material": 2, "n": 3.821, "alpha": 0.03720, "beta": 0.0953, "gamma": 0.6081}
+  
+  , {"tipoBarrera": 2, "barrera": 4, "material": 1, "n": 5.766, "alpha": 2.117, "beta": 23.16, "gamma": 0.8102}
+  , {"tipoBarrera": 2, "barrera": 5, "material": 1, "n": 8.743, "alpha": 2.404, "beta": 15.05, "gamma": 0.7988}
+  , {"tipoBarrera": 2, "barrera": 6, "material": 1, "n": 6.951, "alpha": 2.386, "beta": 14.07, "gamma": 0.8250}
+  , {"tipoBarrera": 2, "barrera": 7, "material": 1, "n": 7.104, "alpha": 2.241, "beta": 14.62, "gamma": 0.7117}
+  , {"tipoBarrera": 2, "barrera": 4, "material": 2, "n": 5.766, "alpha": 0.03570, "beta": 0.1080, "gamma": 0.6016}
+  , {"tipoBarrera": 2, "barrera": 5, "material": 2, "n": 8.743, "alpha": 0.03702, "beta": 0.1066, "gamma": 0.6297}
+  , {"tipoBarrera": 2, "barrera": 6, "material": 2, "n": 6.951, "alpha": 0.03599, "beta": 0.09796, "gamma": 0.6064}
+  , {"tipoBarrera": 2, "barrera": 7, "material": 2, "n": 7.104, "alpha": 0.03422, "beta": 0.1082, "gamma": 0.5579}
+]

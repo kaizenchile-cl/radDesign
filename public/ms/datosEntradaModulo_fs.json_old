@@ -1,0 +1,82 @@
+[
+    {
+         "id":"2"
+         , "nombre":"barrera"
+         , "etiqueta":"Type of Barrier"
+         , "tipo":"seleccionSimple"
+         , "tipoOrigen": "json"
+         , "origen":[{"id":"3", "nombre":"Pared Lateral"}, {"id":"1","nombre":"Bucky Pecho Primario"}, {"id":"2","nombre":" Piso Primario"}, {"id":"4","nombre":"Bucky Pecho Secundario"}, {"id":"5","nombre":"Pared Secundaria"}, {"id":"6","nombre":"Piso Fuera de Mesa"}, {"id":"7","nombre":"Techo"}]
+         , "valor": "id"
+         , "texto": "nombre"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }     
+     ,{
+         "id":"3"
+         , "nombre":"factorOcupacion"
+         , "etiqueta":"Ocuppancy Factor (T)"
+         , "tipo":"seleccionSimple"
+         , "tipoOrigen": "json"
+         , "origen": [{"id":"1", "nombre":" 1 : Total"}, {"id":"0.5","nombre":"1/2 : Parcial"}, {"id":"0.125","nombre":"1/8  : Puerta Pasillos"}, {"id":"0.05","nombre":"1/20  : Baja Ocupación"}, {"id":"0.025","nombre":"1/40  : Exteriores"}]
+         , "valor":"id"
+         , "texto":"nombre"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }
+     ,{
+         "id":"4"
+         , "nombre":"d"
+         , "etiqueta":"Distance to RPOI [m]"
+         , "tipo":"numeric"
+         , "maximo":"10"
+         , "minimo":"0"
+         , "paso": "0.5"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }
+     ,{
+         "id":"5"
+         , "nombre":"clasificacionArea"
+         , "etiqueta":"Design Goal"
+         , "tipo":"seleccionSimple"
+         , "tipoOrigen": "json"
+         , "origen":[{"id":"1", "nombre":"Controlada"}, {"id":"2","nombre":"No Controlada"}]
+         , "valor": "id"
+         , "texto": "nombre"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }
+     ,{
+         "id":"6"
+         , "nombre":"material"
+         , "etiqueta":"Material"
+         , "tipo":"seleccionSimple"
+         , "tipoOrigen": "json"
+         , "origen":[{"id":"1", "nombre":"Plomo"}, {"id":"2","nombre":"Concreto"}]
+         , "valor": "id"
+         , "texto": "nombre"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }
+     ,{
+         "id":"7"
+         , "nombre":"tienePreblindaje"
+         , "etiqueta":"Pre Shielding"
+         , "tipo":"seleccionSimple"
+         , "tipoOrigen": "json"
+         , "origen":[
+             {"id":"1", "nombre":"Con Preblindaje", "dependencia": "[1, 2, 3].indexOf(#{barrera}) > -1"}
+             , {"id":"2","nombre":"Sin Preblindaje"}
+            ]
+         , "valor": "id"
+         , "texto": "nombre"
+         , "exito":"Está Correcto"
+         , "error":"Tiene error"
+         , "obligatorio": true
+     }
+ ]

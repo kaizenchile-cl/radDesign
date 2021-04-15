@@ -1,0 +1,6 @@
+[
+  {"material":"1", "alpha": 2.991e1, "beta": 1.844e2, "gamma": 3.55e-1}
+  , {"material":"2", "alpha": 2.539e-1, "beta": 1.8411, "gamma": 3.924e-1}
+  , {"material":"3", "alpha": 8.83e-2, "beta": 7.526e-1, "gamma": 3.786e-1}
+  , {"material":"4", "alpha": 1.88e-2, "beta": 4.172e-2, "gamma": 2.903e-1}
+]

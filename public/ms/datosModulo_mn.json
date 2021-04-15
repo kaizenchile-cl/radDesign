@@ -1,0 +1,76 @@
+[
+    {
+        "id":"1"
+        , "nombre":"radioisotopo"
+        , "etiqueta":"Radioisotope"
+        , "tipo":"seleccionSimple"
+        , "ayuda": "Select I131 for iodine treatment practice, F18 for PET shielding calculation and Tc99m for SPECT"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"3","nombre":"I131"}, {"id":"2","nombre":"F18"}, {"id":"1", "nombre": "Tc99m"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"2"
+        , "nombre":"actividadPaciente"
+        , "etiqueta":"Activity Per Patient [mCi]"
+        , "ayuda": "Maximum activity provided to patients in mCi"
+        , "tipo":"numeric"
+        , "maximo":"200"
+        , "minimo":"0"
+        , "paso":"10"
+        , "dependencia" : "#{radioisotopo} != 1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "defecto":"#{radioisotopo} == 3 ? 200 : 15"
+        , "obligatorio": true
+    }     
+    ,{
+        "id":"3"
+        , "nombre":"numeroProcedimientosSemana"
+        , "etiqueta":"N° of Treatments Per Week"
+        , "ayuda": "Number of patients per week"
+        , "tipo":"numeric"
+        , "maximo":"200"
+        , "minimo":"0"
+        , "paso":"5"
+        , "dependencia" : "#{radioisotopo} != 1"
+        , "defecto":"#{radioisotopo} == 3 ? 3 : 40"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"tiempoCaptacion"
+        , "etiqueta":"Acquisition Time [h]"
+        , "ayuda": "Hospitalization time"
+        , "tipo":"numeric"
+        , "maximo":"2880"
+        , "minimo":"0"
+        , "paso": "10"
+        , "dependencia" : "#{radioisotopo} != 1"
+        , "defecto":"#{radioisotopo} == 3 ? 48 : 1"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"tiempoImagen"
+        , "etiqueta":"Imaging Time [h]"
+        , "ayuda": "Time of acquisition of image"
+        , "tipo":"numeric"
+		, "defecto":"0.5"
+        , "maximo":"2880"
+        , "minimo":"0"
+        , "paso": "10"
+        , "dependencia" : "#{radioisotopo} == 2"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

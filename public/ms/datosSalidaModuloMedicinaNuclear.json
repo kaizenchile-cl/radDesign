@@ -1,0 +1,15 @@
+[
+  {"id":"12", "tipoSalida": "salida", "nombre": "constanteGamma", "etiqueta": "Gamma [mSvxm2/hxCi]", "expresion": {"tipo":"formula","texto":"#{radioisotopo}==1?0.7289:#{radioisotopo}==2?5,291:2.027"}}
+  , {"id":"13", "tipoSalida": "salida", "nombre": "semiperiodoDesientegracion", "etiqueta": "T 1/2 [min]", "expresion": {"tipo":"formula", "texto":"#{radioisotopo}==Tc99m?360:#{radioisotopo}==F18?109,8:11520"}}
+  , {"id":"14", "tipoSalida": "salida", "nombre":"limiteSemanalDosis", "etiqueta": "Hw lim[mSv/sem]", "expresion": {"tipo":"formula", "texto":"#{clasificacionArea}==1?01[mSv/sem]:0,02[mSv/sem]"}}
+  , {"id":"15", "tipoSalida": "salida", "nombre":"actividadRetenidaPreImagen", "etiqueta": "Act ret [mCi]", "expresion":{"tipo":"formula", "texto":"#{radioisotopo}==2?0.85:1"}}
+  , {"id":"16", "tipoSalida": "salida", "nombre":"factorAutoatenuacion", "etiqueta":"Faten [mCi]", "expresion":{"tipo":"formula", "texto":"#{radioisotopo}==2?0.85:1"}}
+  , {"id":"17", "tipoSalida": "salida", "nombre":"factorReduccion", "etiqueta":"Rt[h]", "expresion":{"tipo":"formula","texto":"1.443*(#{semiperiodoDesientegracion}/#{tiempoCaptacion})*[1-exp(-0.693*#{tiempoCaptacion}/#{semiperiodoDesientegracion})]"}}
+  , {"id":"18", "tipoSalida": "salida", "nombre":"dosisSemanalAporteBox1", "etiqueta":"Hw1 [mSv/sem]", "expresion":{"tipo":"formula","texto":""}} 
+  , {"id":"19", "tipoSalida": "salida", "nombre":"dosisSemanalAporteBox2", "etiqueta":"Hw2 [mSv/sem]", "expresion":{"tipo":"formula","texto":""}}
+  , {"id":"20", "tipoSalida": "salida", "nombre":"dosisSemanalAporteBox3", "etiqueta":"Hw3[mSv/sem]", "expresion":{"tipo":"formula","texto":""}}
+  , {"id":"21", "tipoSalida": "salida", "nombre":"dosisSemanalAporteSalaImagen", "etiqueta":"Hwi[mSv/sem]", "expresion":{"tipo":"formula","texto":""}}
+  , {"id":"22", "tipoSalida": "salida", "nombre":"coeficienteTransmision", "etiqueta":"B", "expresion":{"tipo":"formula","texto":""}}
+  , {"id":"23", "tipoSalida": "salida", "nombre":"Número de TVL", "etiqueta":"N° TVL", "expresion":{"tipo":"formula","texto":"n = log10(1/#{coeficienteTransmision})"}}
+  , {"id":"24", "tipoSalida": "resultado", "nombre":"espesor", "etiqueta":"Espesor de muro", "expresion":{"tipo":"formula","texto":"#{nTVL}*#{tvl}"}}
+]

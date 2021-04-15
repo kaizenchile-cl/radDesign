@@ -1,0 +1,13 @@
+[
+  {"id":"15","tipoSalida":"salida","nombre":"w", "etiqueta":"Carga de Trabajo", "unidad":"Gy/semana", "expresion":{"tipo":"formula", "texto":"#n_pac_dia*#Gy/paciente*#dias/semana"}}
+  ,{"id":"16","tipoSalida":"salida","nombre":"bps", "etiqueta":"Transmisión de dispersión del paciente", "expresion":{"tipo":"formula","texto":"#P/(#alfa*#w*#U)"}}
+    ,{"id":"17","tipoSalida":"salida","nombre":"bl","etiqueta":"Transmisión de fuga del cabeza","expresion":{"tipo":"formula","texto":""}}
+  ,{"id":"18","tipoSalida":"salida","nombre":"P","etiqueta":"Límite Semanal dosis","unidad":"mSv/sem","expresion":{"tipo":"formula","texto":"#{clasificacionArea}==1?0.1:0.02"}}
+  ,{"id":"19", "tipoSalida": "salida", "nombre":"tvl1", "etiqueta": "TVL1", "expresion": {"tipo":"tabla", "valor":"tvl_1","tabla":"tvlParametrosRadioPrimaria","filtro":[{"campo":"energia","valor":"#{energia}"},{"campo":"tipoMaterial","valor":"#{tipoMaterial}"}]}}
+  ,{"id":"20", "tipoSalida": "salida", "nombre":"tvl2", "etiqueta": "TVL2", "expresion": {"tipo":"tabla", "valor":"tvl_2","tabla":"tvlParametrosRadioPrimaria","filtro":[{"campo":"energia","valor":"#{energia}"},{"campo":"tipoMaterial","valor":"#{tipoMaterial}"}]}}
+]
+
+[
+  {"id":"21","tipoSalida":"resultado","nombre":"nTVL","etiqueta":"Nº TVL","expresion":{"tipo":"formula","texto":"-Match.LOG10(#{Bprim})"}}
+  ,{"id":"22","tipoSalida":"resultado","nombre":"Espesor de la Barrera","etiqueta":"Espesor de la Barrera","expresion":{"tipo":"formula","texto":"{#tvl1}+(nTVL-1)*{#tvl2}"}}
+]

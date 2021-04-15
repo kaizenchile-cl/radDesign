@@ -1,0 +1,54 @@
+[
+    {
+        "id":"13"
+        , "nombre":"nroFactorOcupacion"
+        , "etiqueta":"Ocuppancy Factor (T)"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":" 1 : Total"}, {"id":"0.5","nombre":"1/2 : Partial"}, {"id":"0.125","nombre":"1/8  : Door, Hallway"}, {"id":"0.05","nombre":"1/20  : Low Ocuppancy"}, {"id":"0.025","nombre":"1/40  : Outside"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"3"
+        , "nombre":"clasificacionZona"
+        , "etiqueta":"Design Goal"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Controlled"}, {"id":"2","nombre":"Non Controlled"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"material"
+        , "etiqueta":"Material"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Lead"}, {"id":"2","nombre":"Concreet"}, {"id":"3", "nombre": "Gypsum"}, {"id":"4", "nombre": "Wood"} ]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    , {
+        "id":"2"
+        , "nombre":"distanciaFuenteMuro"
+        , "etiqueta":"Distance Isocenter-RPOI"
+        , "tipo":"numeric"
+        , "maximo":"0"
+        , "minimo":"10"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":""
+        , "obligatorio": true
+    }     
+]

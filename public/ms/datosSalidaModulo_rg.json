@@ -1,0 +1,164 @@
+[
+  {
+    "id":"1"
+    , "tipoSalida": "salida"
+    , "nombre": "P"
+    , "etiqueta": "Dose Limit (P)"
+    , "visible": false
+    , "unidad": "[mGy/sem]"
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{clasificacionArea} == 1 ? 0.1 : #{clasificacionArea} == 2 ? 0.02 : 0.025"}
+  }
+  ,   {
+    "id":"2"
+    , "tipoSalida": "salida"
+    , "nombre": "tipoBarrera"
+    , "etiqueta": "Type of Barrier"
+    , "visible": false
+    , "unidad": ""
+    , "cantidadCaracteres": 4
+    , "expresion": {"tipo":"formula","texto":"#{tienePreblindaje}"}
+  }
+  ,  {
+    "id": "3",
+    "tipoSalida": "salida",
+    "visible": false,
+    "nombre": "n",
+    "etiqueta": "n",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tabla"
+      , "valor":"n"
+      ,"tabla":"tParametrosRG"
+      ,"filtro":[
+        {"campo":"tipoBarrera","valor":"#{tipoBarrera?2}"}
+        , {"campo":"barrera","valor":"#{barrera}"}
+        , {"campo":"material","valor":"#{material}"}
+      ]
+  }
+  }, {
+    "id": "18",
+    "tipoSalida": "salida",
+    "visible": false,
+    "nombre": "alpha",
+    "etiqueta": "Alpha (α)",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tabla"
+      , "valor":"alpha"
+      ,"tabla":"tParametrosRG"
+      ,"filtro":[
+        {"campo":"tipoBarrera","valor":"#{tipoBarrera?2}"}
+        , {"campo":"barrera","valor":"#{barrera}"}
+        , {"campo":"material","valor":"#{material}"}
+      ]
+  }
+  }, {
+    "id": "19",
+    "tipoSalida": "salida",
+    "visible": false,
+    "nombre": "beta",
+    "etiqueta": "Beta (β)",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tabla"
+      , "valor":"beta"
+      ,"tabla":"tParametrosRG"
+      ,"filtro":[
+        {"campo":"tipoBarrera","valor":"#{tipoBarrera?2}"}
+        , {"campo":"barrera","valor":"#{barrera}"}
+        , {"campo":"material","valor":"#{material}"}
+      ]
+    }
+  }, {
+    "id": "20",
+    "tipoSalida": "salida",
+    "visible": false,
+    "nombre": "gamma",
+    "etiqueta": "Gamma (γ)",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"tabla"
+      , "valor":"gamma"
+      ,"tabla":"tParametrosRG"
+      ,"filtro":[
+        {"campo":"tipoBarrera","valor":"#{tipoBarrera?2}"}
+        , {"campo":"barrera","valor":"#{barrera}"}
+        , {"campo":"material","valor":"#{material}"}
+      ]
+    }
+  }  , {
+    "id": "22",
+    "tipoSalida": "salida",
+    "visible": true,
+    "nombre": "cte1",
+    "etiqueta": "Number of Procedures (N)",
+    "unidad":"[pac/sem]",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"formula"
+      , "texto":"#{pacientesSemana}"
+    }
+  }, {
+    "id": "23",
+    "tipoSalida": "salida",
+    "visible": true,
+    "nombre": "cte2",
+    "etiqueta": "Occupancy Factor (T)",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"formula"
+      , "texto":"#{factorOcupacion}"
+    }
+  }, {
+    "id": "24",
+    "tipoSalida": "salida",
+    "visible": true,
+    "nombre": "cte3",
+    "etiqueta": "Dose Limit (P)",
+    "unidad":"[mGy/sem]",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"formula"
+      , "texto":"#{P}"
+    }
+  }, {
+    "id": "25",
+    "tipoSalida": "salida",
+    "visible": true,
+    "nombre": "cte5",
+    "etiqueta": "Distance (d)",
+    "unidad":"[m]",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"formula"
+      , "texto":"#{d}"
+    }
+  }, {
+    "id": "21",
+    "tipoSalida": "salida",
+    "visible": true,
+    "nombre": "cte",
+    "etiqueta": "NT/Pd²",
+    "unidad":"",
+    "cantidadCaracteres": 5,
+    "expresion": {
+      "tipo":"formula"
+      , "texto":"#{pacientesSemana}*#{factorOcupacion}/(#{P}*Math.pow(#{d}, 2))"
+    }
+  }  , {
+    "id":"17"
+    , "tipoSalida": "resultado"
+    , "nombre":"espesor"
+    , "etiqueta":"Thickness"
+    , "visible": true
+    , "unidad": "[mm]"
+    , "cantidadCaracteres": 4
+    , "expresion":{"tipo":"formula","texto":"1 / (#{alpha} * #{gamma}) * Math.log((Math.pow(#{pacientesSemana}*#{factorOcupacion}/(#{P}*Math.pow(#{d}, 2) * #{n}), #{gamma}) + #{beta} / #{alpha}) / ( 1 + #{beta} / #{alpha}))"}
+  }
+]

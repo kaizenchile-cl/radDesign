@@ -1,0 +1,78 @@
+[
+    {
+        "id":"1"
+        , "nombre":"nProcedimientos"
+        , "etiqueta":"Procedimientos mamografía semanales"
+        , "tipo":"numeric"
+        , "maximo":"1000"
+        , "minimo":"1"
+        , "paso":"10"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"2"
+        , "nombre":"distanciaFuenteMuro"
+        , "etiqueta":"Distancia ISO-PIR"
+        , "tipo":"numeric"
+        , "maximo":"0"
+        , "minimo":"10"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "valor":""
+        , "obligatorio": true
+    }     
+    ,{
+        "id":"3"
+        , "nombre":"clasificacionZona"
+        , "etiqueta":"clasificación de Zona"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"10 / 50: Controlada"}, {"id":"2","nombre":"1 / 50: No Controlada"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"4"
+        , "nombre":"distanciaFuenteMuro"
+        , "etiqueta":"Distancia ISO-PIR"
+        , "tipo":"numeric"
+        , "maximo": "10"
+        , "minimo": "0"
+        , "paso":"0.5"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"5"
+        , "nombre":"clasificacionZona"
+        , "etiqueta":"Clasificación de zona"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"10 / 50: Controlada"}, {"id":"2","nombre":"1 / 50: No Controlada"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+    ,{
+        "id":"6"
+        , "nombre":"materialBlindado"
+        , "etiqueta":"Materia a Blindar"
+        , "tipo":"seleccionSimple"
+        , "tipoOrigen": "json"
+        , "origen": [{"id":"1", "nombre":"Lead"}, {"id":"2","nombre":"Concrete"}, {"id":"3","Gypsum Wallboard"}]
+        , "valor":"id"
+        , "texto":"nombre"
+        , "exito":"Está Correcto"
+        , "error":"Tiene error"
+        , "obligatorio": true
+    }
+]

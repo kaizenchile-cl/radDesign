@@ -1,0 +1,104 @@
+[
+  {
+    "id":"7"
+    , "tipoSalida": "salida"
+    , "nombre": "n"
+    , "etiqueta": "Number of Procedures (N)"
+    , "visible": true
+    , "unidad": ""
+    , "expresion": {"tipo":"formula","texto":"#{nProcedimientos}"}
+  }
+  ,  {
+    "id":"8"
+    , "tipoSalida": "salida"
+    , "nombre": "p"
+    , "etiqueta": "Dose Limit (P)"
+    , "visible": true
+    , "unidad": "[mSv/semana]"
+    , "expresion": {"tipo":"formula","texto":"#{clasificacionZona}==1?0.1:0.02"}
+  }
+  , {
+    "id":"9"
+    , "tipoSalida": "salida"
+    , "nombre":"t"
+    , "etiqueta":"Ocuppancy Factor (T)"
+    , "visible": true
+    , "unidad": ""
+    , "expresion":{"tipo":"formula","texto":"#{nroFactorOcupacion}"}
+  }
+  , {
+    "id":"10"
+    , "tipoSalida": "salida"
+    , "nombre":"alpha"
+    , "etiqueta": "Alpha (α)"
+    , "visible": true
+    , "unidad": ""
+    , "expresion": {
+        "tipo":"tabla"
+        , "valor":"alpha"
+        ,"tabla":"tParametrosMG"
+        ,"filtro":[
+            {"campo":"material","valor":"#{material}"}
+         ]
+       }
+    }
+    , {
+      "id":"11"
+      , "tipoSalida": "salida"
+      , "nombre":"beta"
+      , "etiqueta": "Beta (β)"
+      , "visible": true
+      , "unidad": ""
+      , "expresion": {
+          "tipo":"tabla"
+          , "valor":"beta"
+          ,"tabla":"tParametrosMG"
+          ,"filtro":[
+              {"campo":"material","valor":"#{material}"}
+           ]
+         }
+      }
+      , {
+        "id":"12"
+        , "tipoSalida": "salida"
+        , "nombre":"gamma"
+        , "etiqueta": "Gamma (γ)"
+        , "visible": true
+        , "unidad": ""
+        , "expresion": {
+            "tipo":"tabla"
+            , "valor":"gamma"
+            ,"tabla":"tParametrosMG"
+            ,"filtro":[
+                {"campo":"material","valor":"#{material}"}
+             ]
+           }
+        }
+        , {
+          "id":"13"
+          , "tipoSalida": "salida"
+          , "nombre":"k0"
+          , "etiqueta": "Kerma 0 (K0)"
+          , "visible": true
+          , "unidad": "[mGy/sem]"
+          , "expresion":{"tipo":"formula", "texto":"0.036 * #{nProcedimientos} / Math.pow(#{distanciaFuenteMuro}, 2)"}
+        }
+        , {
+          "id":"14"
+          , "tipoSalida": "salida"
+          , "nombre":"b"
+          , "etiqueta": "Transmission Factor (B)"
+          , "visible": true
+          , "unidad": ""
+          , "expresion":{"tipo":"formula", "texto":"#{p} / (#{t} * #{k0})"}
+        }
+              , {
+    "id":"15"
+    , "tipoSalida": "resultado"
+    , "nombre":"x"
+    , "etiqueta": "Thickness"
+    , "visible": true
+    , "unidad": "[mm]"
+    , "expresion":{"tipo":"formula", "texto":"1 / (#{alpha} * #{gamma}) * Math.log((Math.pow( #{nProcedimientos} * #{t} * 0.036 / (#{p} * Math.pow(#{distanciaFuenteMuro}, 2) ) , #{gamma}) + #{beta} / #{alpha}) / (1 + #{beta} / #{alpha} ))"}
+  }
+]

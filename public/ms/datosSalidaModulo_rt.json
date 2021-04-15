@@ -1,0 +1,640 @@
+[
+
+  {
+    "id":"1"
+    ,"tipoSalida":"salida"
+    ,"nombre":"paso1"
+    ,"visible": false
+    , "etiqueta":"Workload (W)"
+    , "expresion":
+      {
+        "tipo":"formula"
+        , "texto":"#{tipoBarrera} == 1 ? 1 : null"
+      }
+  }
+  ,  {
+    "id":"2"
+    ,"tipoSalida":"salida"
+    ,"nombre":"paso2"
+    ,"visible": false
+    , "etiqueta":"Workload (W)"
+    , "expresion":
+      {
+        "tipo":"formula"
+        , "texto":"#{tipoBarrera} == 2 ? 1 : null"
+      }
+  }
+  ,  {
+    "id":"11"
+    ,"tipoSalida":"salida"
+    ,"nombre":"w"
+    ,"visible": true
+    , "etiqueta":"Workload (W)"
+    , "unidad":"[Gy/sem]"
+    , "expresion":
+      {
+        "tipo":"formula"
+        , "texto":"#{usaCargaTrabajo} == 1 ? #{n_dia?0}*#{GyPaciente?0}*#{diasSemana?0} : #{cargaTrabajo?0}"
+      }
+  }
+  , {
+    "id":"13"
+    ,"tipoSalida":"salida"
+    ,"nombre":"P"
+    ,"etiqueta":"Dose Limit (P)"
+    ,"unidad":"[μSv/sem]"
+    ,"visible": true
+    , "cantidadCaracteres": 8
+    ,"expresion":
+      {
+        "tipo":"formula"
+        ,"texto":"#{clasificacionArea}==3 && #{norma} == 1 ?100:#{clasificacionArea}==4 && #{norma} == 1 ?20:#{clasificacionArea}==3?120:#{clasificacionArea}==4?20:#{clasificacionArea}==5 ? #{otraArea?0} : 6"
+      }
+  }
+  , {
+    "id":"12"
+    , "tipoSalida":"salida"
+    , "nombre":"Bprim"
+    , "etiqueta":"Transmission Coefficient (B)"
+    , "cantidadCaracteres": 16
+    , "visible": true
+    , "expresion":
+      {
+        "tipo":"formula"
+        ,"texto":"Number.parseFloat((#{P} * 1e-6 * Math.pow(#{Barrera} + 1, 2) / ( #{w}*#{T}*#{U} )).toPrecision(6)).toExponential()"
+      }
+  }
+  , {
+    "id":"12b2"
+    , "tipoSalida":"salida"
+    , "nombre":"BprimIdr"
+    , "etiqueta":"Transmission Coefficient (B idr)"
+    , "cantidadCaracteres": 16
+    , "visible": true
+    , "expresion":
+      {
+        "tipo":"formula"
+        ,"texto":"Number.parseFloat((#{idrMax} / (1e6 * #{D0max} * 60) * Math.pow(#{Barrera} + 1, 2)).toPrecision(6)).toExponential()"
+      }
+  }
+  , {
+    "id":"12b3"
+    , "tipoSalida":"salida"
+    , "nombre":"nTvlIdr"
+    , "etiqueta":"N° de TVL (TVL idr)"
+    , "cantidadCaracteres": 4
+    , "visible": true
+    , "expresion":
+      {
+        "tipo":"formula"
+        ,"texto":"Math.log10( 1 / ( #{BprimIdr} ) )"
+      }
+  }
+  , {
+    "id":"14"
+    , "tipoSalida": "salida"
+    , "nombre":"tvl"
+    , "etiqueta": "Primary TVL."
+    , "cantidadCaracteres": 4
+    , "unidad":"[cm]"
+    , "visible":true
+    , "expresion":
+     {
+       "tipo":"tabla"
+       , "valor":"tvl"
+       ,"tabla":"tvlParametrosRT"
+       ,"filtro":
+        [
+          {"campo":"energia","valor":"#{energia}"}
+          ,{"campo":"tipoMaterial","valor":"#{tipoMaterial}"}
+          ,{"campo":"tipoBarrera","valor":"#{tipoBarrera}"}
+        ]
+      }
+    }
+  , {
+    "id":"14tvl1"
+    , "tipoSalida": "salida"
+    , "nombre":"tvl1_151"
+    , "etiqueta": "Primary TVL1 151."
+    , "cantidadCaracteres": 4
+    , "unidad":"[cm]"
+    , "visible":true
+    , "expresion":
+     {
+       "tipo":"tabla"
+       , "valor":"tvl1"
+       ,"tabla":"tvlPrimaria151"
+       ,"filtro":
+        [
+          {"campo":"energia","valor":"#{energia}"}
+          ,{"campo":"material","valor":"#{tipoMaterial}"}
+        ]
+      }
+    }
+  , {
+    "id":"14tvle"
+    , "tipoSalida": "salida"
+    , "nombre":"tvle_151"
+    , "etiqueta": "Primary TVLe 151."
+    , "cantidadCaracteres": 4
+    , "unidad":"[cm]"
+    , "visible":true
+    , "expresion":
+     {
+       "tipo":"tabla"
+       , "valor":"tvle"
+       ,"tabla":"tvlPrimaria151"
+       ,"filtro":
+        [
+          {"campo":"energia","valor":"#{energia}"}
+          ,{"campo":"material","valor":"#{tipoMaterial}"}
+        ]
+      }
+    }
+  , {
+    "id":"14g"
+    , "tipoSalida": "salida"
+    , "nombre":"tvlSec"
+    , "etiqueta": "TVL Leak"
+    , "cantidadCaracteres": 4
+    , "unidad":"[cm]"
+    , "visible":true
+    , "despliegue": "#{tipoBarrera} == 2"
+    , "expresion": 
+     {
+       "tipo":"tabla"
+       , "valor":"tvl"
+       ,"tabla":"tvlParametrosRT"
+       ,"filtro":
+        [
+          {"campo":"energia","valor":"#{energia}"}
+          ,{"campo":"tipoMaterial","valor":"#{tipoMaterial}"}
+          ,{"campo":"tipoBarrera","valor":"#{tipoBarrera}"}
+        ]
+      }
+    }
+    , {
+      "id":"14b"
+      , "tipoSalida": "salida"
+      , "nombre":"tvlpac"
+      , "etiqueta": "TVL on Patient"
+      ,"unidad":"[cm]"
+      , "visible":true
+      , "expresion":
+       {
+         "tipo":"tabla"
+         , "valor":"tvl"
+         ,"tabla":"tvlPacientesRT"
+         ,"filtro":
+          [
+            {"campo":"energia","valor":"#{energia}"}
+            ,{"campo":"material","valor":"#{tipoMaterial}"}
+            ,{"campo":"angulo","valor":"#{anguloDispersion}"}
+          ]
+        }
+      }
+      , {
+        "id":"14b151"
+        , "tipoSalida": "salida"
+        , "nombre":"tvl1_151"
+        , "etiqueta": "TVL1 on Patient (151)"
+        ,"unidad":"[cm]"
+        , "visible":true
+        , "expresion":
+         {
+           "tipo":"tabla"
+           , "valor":"tvl1"
+           ,"tabla":"tvlSecundaria151"
+           ,"filtro":
+            [
+              {"campo":"energia","valor":"#{energia}"}
+              ,{"campo":"material","valor":"#{tipoMaterial}"}
+              ,{"campo":"angulo","valor":"#{anguloDispersion}"}
+            ]
+          }
+        }
+        , {
+          "id":"14a151"
+          , "tipoSalida": "salida"
+          , "nombre":"tvl2_151"
+          , "etiqueta": "TVL2 on Patient (151)"
+          ,"unidad":"[cm]"
+          , "visible":true
+          , "expresion":
+           {
+             "tipo":"tabla"
+             , "valor":"tvl2"
+             ,"tabla":"tvlSecundaria151"
+             ,"filtro":
+              [
+                {"campo":"energia","valor":"#{energia}"}
+                ,{"campo":"material","valor":"#{tipoMaterial}"}
+                ,{"campo":"angulo","valor":"#{anguloDispersion}"}
+              ]
+            }
+          }
+                , {
+      "id":"15s"
+      ,"tipoSalida":"salida"
+      ,"nombre":"a"
+      , "visible":true
+      , "etiqueta":"Alpha"
+      , "expresion":
+     {
+       "tipo":"tabla"
+       , "valor":"alpha2"
+       ,"tabla":"tAlphasRT"
+       ,"filtro":
+        [
+          {"campo":"energia","valor":"#{energia}"}
+          ,{"campo":"angulo","valor":"#{anguloDispersion}"}
+        ]
+      }
+
+    }
+    , {
+      "id":"17s"
+      ,"tipoSalida":"salida"
+      ,"nombre":"dsca"
+      ,"visible":false
+      , "etiqueta":"dsca"
+      , "expresion":{"tipo":"formula","texto":"#{tipoBarrera} == '2' ? 1 : null"}
+    }
+    , {
+      "id":"17s2"
+      ,"tipoSalida":"salida"
+      ,"nombre":"F"
+      ,"visible":true
+      , "etiqueta":"Field Size (F)"
+      , "cantidadCaracteres": 10
+      , "unidad": "[cm x cm]"
+      , "expresion":{"tipo":"formula","texto":"#{forig} == 1 ? 20 * 20 : #{forig} == 2 ? 35 * 35 : 40 * 40"}
+     }
+    , {
+      "id":"16s"
+      ,"tipoSalida":"salida"
+      ,"nombre":"bps"
+      ,"visible":true
+      , "etiqueta":"Transmission Coefficient (B) on Patient"
+      , "cantidadCaracteres": 15
+      , "despliegue": "nc"
+      , "expresion":{"tipo":"formula","texto":"400 * #{P} * 1e-6 * Math.pow(#{dsca}, 2) * Math.pow(#{Barrera}, 2)/(#{a}*#{w}*#{T}*#{F})"}
+    }
+    , {
+      "id":"16s2"
+      ,"tipoSalida":"salida"
+      ,"nombre":"bca"
+      ,"visible":true
+      , "etiqueta":"Transmission Coefficient (B) Leak"
+      , "cantidadCaracteres": 15
+      , "despliegue": "nc"
+      , "expresion":{"tipo":"formula","texto":"1000 * #{P} * 1e-6 * Math.pow(#{distanciaFuga}, 2) /(#{w}*#{T})"}
+    }
+   , {
+      "id":"16"
+      , "tipoSalida":"salida"
+      , "nombre":"nTVL"
+      , "etiqueta":"N° of Primary TVL"
+      , "cantidadCaracteres": 4
+      , "visible":true
+      , "expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"-Math.log10(#{Bprim})"
+        }
+    }
+   , {
+      "id":"20a"
+      ,"tipoSalida":"salida"
+      ,"nombre":"nTVL1"
+      ,"etiqueta":"N° of TVL on Patient"
+      ,"visible":true
+      , "cantidadCaracteres": 4
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"-Math.log10(#{bps})"
+        }
+    }
+   , {
+      "id":"20b"
+      ,"tipoSalida":"salida"
+      ,"nombre":"nTVL2"
+      ,"etiqueta":"N° of TVL Leak"
+      ,"visible":true
+      , "cantidadCaracteres": 4
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"-Math.log10(#{bca})"
+        }
+    }
+   , {
+      "id":"21a"
+      ,"tipoSalida":"salida"
+      ,"nombre":"xpac"
+      ,"etiqueta":"Thickness on Patient"
+      ,"visible":true
+      , "unidad": "[cm]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"Math.round(#{nTVL1} * #{tvlpac} * 10) / 10"
+        }
+    }
+   , {
+      "id":"21b"
+      ,"tipoSalida":"salida"
+      ,"nombre":"xfuga"
+      ,"etiqueta":"Thickness Leak"
+      ,"visible":true
+      , "unidad": "[cm]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"Math.round(#{nTVL2} * #{tvlSec} * 10 ) / 10"
+        }
+    }
+   , {
+      "id":"20c"
+      ,"tipoSalida":"salida"
+      ,"nombre":"dEspesor"
+      ,"etiqueta":"Delta Esp."
+      ,"visible":true
+      , "unidad": "[cm]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"Math.abs(#{xpac} - #{xfuga})"
+        }
+    }
+    , {
+      "id":"30a"
+      ,"tipoSalida":"salida"
+      ,"nombre":"idr"
+      ,"etiqueta":"Instant Dose Rate (IDR)"
+      ,"visible":true
+      , "unidad": "[μGy/h]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{paso1} * 1e6 * #{D0max} * 60 * #{Bprim} / Math.pow(#{Barrera}, 2) "
+        }
+    }
+    , {
+      "id":"30b"
+      ,"tipoSalida":"salida"
+      ,"nombre":"rh"
+      ,"etiqueta":"TADR"
+      ,"visible":true
+      , "unidad": "[μSv/h]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{paso1} * #{idr} * 12 * #{GyPaciente} * #{U} / (#{D0max} * 60)"
+        }
+    }
+   , {
+      "id":"20d"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"espesor2"
+      ,"etiqueta":"Thickness 1"
+      ,"visible":true
+      , "unidad": "[cm]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{norma} == 2 ? (Math.max(#{xpac}, #{xfuga}) + (#{dEspesor} < Math.max(#{tvlSec}, #{tvlpac}) ?  + 0.301 * #{tvlSec} : 0)) : #{tvl1_151} + (#{tvlpac} -1) * #{tvl2_151} "
+        }
+    }
+   , {
+      "id":"20fIdr"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"espesorIdr"
+      ,"etiqueta":"Thickness IDR"
+      ,"visible":true
+      , "unidad": "[cm]"
+      , "despliegue": "#{usaIdr?0} == 1"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{usaIdr?0} == 1 ? #{tvl} * #{nTvlIdr} : null"
+        }
+    }
+    , {
+      "id":"60"
+      ,"tipoSalida":"salida"
+      ,"nombre":"nTvlPacPrima"
+      ,"etiqueta":"N° of TVL on Patient Prima"
+      ,"visible": false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":" #{espesor2} / #{tvlpac} "
+        }
+    }
+    , {
+      "id":"70"
+      ,"tipoSalida":"salida"
+      ,"nombre":"nTvlFugaPrima"
+      ,"etiqueta":"N° TVL Leak Prima"
+      ,"visible":false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{espesor2} / #{tvl}"
+        }
+    }
+
+    , {
+      "id":"80"
+      ,"tipoSalida":"salida"
+      ,"nombre":"bPacPrima"
+      ,"etiqueta":"Transmission Coefficient (B) on Patient Prima"
+      ,"visible":false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":" Math.pow(10, -#{nTvlPacPrima}) "
+        }
+    }
+    , {
+      "id":"90"
+      ,"tipoSalida":"salida"
+      ,"nombre":"bFugaPrima"
+      ,"etiqueta":"Transmission Coefficient (B) Leak Prima"
+      ,"visible":false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"Math.pow(10, -#{nTvlFugaPrima})"
+        }
+    }
+    , {
+      "id":"100"
+      ,"tipoSalida":"salida"
+      ,"nombre":"idrPaciente"
+      ,"etiqueta":"IDR on Patient"
+      ,"visible":false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{D0max} * 1e6 * 60 * #{a} * #{F} * #{bPacPrima} / (400 * Math.pow(#{Barrera}, 2))"
+        }
+    }
+    , {
+      "id":"110"
+      ,"tipoSalida":"salida"
+      ,"nombre":"idrFuga"
+      ,"etiqueta":"IDR Leak"
+      ,"visible":false
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{D0max} * 1e6 * 60 * #{bFugaPrima} / (1000 * Math.pow(#{Barrera}, 2))"
+        }
+    }
+    , {
+      "id":"120"
+      ,"tipoSalida":"salida"
+      ,"nombre":"idrTotal"
+      ,"etiqueta":"Total IDR"
+      ,"visible":true
+      , "unidad": "[μGy/h]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{idrPaciente} + #{idrFuga}"
+        }
+    }
+    , {
+      "id":"130"
+      ,"tipoSalida":"salida"
+      ,"nombre":"rhFinal"
+      ,"etiqueta":"Final TADR"
+      ,"visible":true
+      , "unidad": "[μSv/h]"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{idrTotal} * 12 * #{GyPaciente} / ( #{D0max} * 60 )"
+        }
+    }
+   , {
+    "id":"17"
+    ,"tipoSalida":"resultado"
+    ,"nombre":"x"
+    ,"etiqueta":"Thickness"
+    ,"visible":true
+    ,"unidad": "[cm]"
+    ,"expresion":
+      {
+        "tipo":"formula"
+        ,"texto":"#{norma} == 2 ? Math.round(#{paso1} * #{nTVL} * #{tvl} * 10) / 10 : #{tipoBarrera} == 1 ? #{tvl1_151}  + (#{tvl} - 1) * #{tvle_151} : #{material} == 2 ? 1 : 2"
+      }
+    }
+    , {
+      "id":"40"
+      ,"tipoSalida":"salida"
+      ,"nombre":"bIdr"
+      ,"etiqueta":"Transmission Factor (B) IDR"
+      ,"visible":true
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{idrMax} / 1e6 * Math.pow(#{Barrera}, 2) / ( #{D0} * 60 )"
+        }
+    }
+    , {
+      "id":"50"
+      ,"tipoSalida":"salida"
+      ,"nombre":"tvlIdr"
+      ,"etiqueta":"N° of TVL IDR"
+      ,"visible":true
+      , "cantidadCaracteres": 4
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"-Math.log10(#{bIdr})"
+        }
+    }
+    , {
+      "id": "60"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"xIdr"
+      ,"etiqueta":"IDR Thickness"
+      ,"visible":true
+      ,"unidad": "[cm]"
+      ,"despliegue" : "#{usaIdr} == 1"
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"Math.round(#{tvlIdr} * #{tvl} * 10) / 10"
+        }
+    }
+    , {
+      "id": "salida 1"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"_nombreTipoBarrera"
+      ,"etiqueta":"tipo"
+      ,"visible":false
+      ,"unidad": ""
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{tipoBarrera} == 1 ? \"Primary\" : #{tipoBarrera} == 2 ? \"Secondary\" : \"Maze/Door\""
+        }
+    }
+    , {
+      "id": "salida 2"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"_materialBarrera"
+      ,"etiqueta":"material"
+      ,"visible":false
+      ,"unidad": ""
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{tipoMaterial} == 1 ? \"Lead\" : #{tipoMaterial} == 2 ? \"Concrete\" : \"Steel\""
+        }
+    }
+    , {
+      "id": "salida 3"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"_espesorBarrera"
+      ,"etiqueta":"espesor"
+      ,"visible":false
+      ,"unidad": ""
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{tipoBarrera} == 1 ? #{x?0} : #{xpac?0}"
+        }
+    }
+    , {
+      "id": "salida 4"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"_distanciaBarrera"
+      ,"etiqueta":"distancia"
+      ,"visible":false
+      ,"unidad": ""
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{Barrera}"
+        }
+    }
+    , {
+      "id": "salida 5"
+      ,"tipoSalida":"resultado"
+      ,"nombre":"_clasificacionArea"
+      ,"etiqueta":"distancia"
+      ,"visible":false
+      ,"unidad": ""
+      ,"expresion":
+        {
+          "tipo":"formula"
+          ,"texto":"#{clasificacionArea} == 3 ? \"Controlled\" : \"Non Controlled\""
+        }
+    }
+]
